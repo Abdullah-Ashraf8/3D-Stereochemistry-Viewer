@@ -32,10 +32,15 @@
 
 body {
     margin: 0;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-main);
-    -webkit-font-smoothing: antialiased;
+    display: flex;
+    /* Aligns the container and footer cleanly */
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    /* Prevents the whole page from double-scrolling */
 }
 
 h1 {
@@ -51,23 +56,29 @@ h1 {
 ========================================= */
 .container {
     display: grid;
-    grid-template-columns: 300px 1fr;
-    height: 100vh;
+    grid-template-columns: 320px 1fr;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    /* Locks the main layout so nothing escapes past the footer */
+    box-sizing: border-box;
 }
 
-/* =========================================
-   Sidebar
-========================================= */
+/* Sidebar Styling */
 .sidebar {
     background-color: var(--sidebar-bg);
-    padding: 2rem 1.75rem;
-    box-shadow: 3px 0 16px rgba(0, 0, 0, 0.07);
+    padding: 2rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
+    gap: 1.5rem;
     z-index: 10;
-    border-right: 1px solid var(--border);
-    animation: slideInLeft 0.4s ease-out both;
+    overflow-y: auto;
+    /* Allows the sidebar to scroll internally if text is long */
+    height: 100%;
+    /* Locks the sidebar height exactly to the grid */
+    box-sizing: border-box;
+    /* THE MAGIC FIX: keeps padding inside the box */
 }
 
 /* =========================================
@@ -180,9 +191,13 @@ button:active {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: #060d0a;
+    background-color: #000000;
+    overflow-y: auto;
+    /* Allows scrolling on the 2D and Chair pages */
+    overflow-x: hidden;
+    box-sizing: border-box;
+    /* THE MAGIC FIX: keeps padding inside the box */
 }
-
 /* Light background for 2D pages (conformations, chair) */
 .viewer-container.light {
     background-color: var(--bg-color);
@@ -208,15 +223,18 @@ button:active {
     z-index: 20;
     animation: pulse 1.4s ease-in-out infinite;
 }
-
 /* =========================================
-   Welcome Overlay
+   Welcome Screen Overlay (Sleek Dark Mode)
 ========================================= */
 .welcome-overlay {
     position: absolute;
-    inset: 0;
-    background-color: #060d0a;
-    color: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Replace flat black with a subtle, glowing radial gradient */
+    background: radial-gradient(circle at center, #0a1f18 0%, #000000 100%);
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -226,13 +244,63 @@ button:active {
 }
 
 .welcome-overlay h2 {
-    color: var(--primary);
-    margin-bottom: 10px;
-    font-family: 'Space Mono', monospace;
-    font-size: 1.6rem;
-    text-shadow: 0 0 20px var(--primary-glow);
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
 }
 
+.welcome-overlay p {
+    color: #a0aab2;
+    font-size: 1.1rem;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+/* Floating Animation for the Test Tube */
+.emoji-icon {
+    font-size: 4rem;
+    margin-top: 20px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Clean up the Footer Styling */
+.project-info {
+    background-color: #1a1e23;
+    /* Dark, professional color */
+    color: #a0aab2;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 3px solid var(--primary-color);
+    margin: 0;
+    z-index: 100;
+}
+
+.project-info span {
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline;
+    margin: 0 5px;
+}
 /* =========================================
    Details Panel
 ========================================= */
@@ -257,6 +325,7 @@ button:active {
     transform: translateY(100%);
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
 }
 
 .details-panel h2 {
@@ -326,7 +395,7 @@ button:active {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    margin: 20px;
+    margin: 20px auto 40px auto;
     padding: 40px 20px;
     /* Added extra padding to stop things from touching the edges */
 }
@@ -507,18 +576,19 @@ button:active {
    Mobile Layout
 ========================================= */
 @media (max-width: 850px) {
-    .container {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
-        height: 100vh;
-        overflow-y: auto;
-    }
+        .container {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            height: 100%;
+            overflow-y: auto;
+            /* Let the whole page scroll on mobile */
+        }
 
-    .sidebar {
-        padding: 1.5rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-        animation: none;
-    }
+        .sidebar {
+            height: auto;
+            /* Let the sidebar resize naturally on phones */
+            overflow-y: visible;
+        }
 
     .project-info {
         margin-top: 20px;

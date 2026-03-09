@@ -12,8 +12,8 @@
 <body>
     <div class="container">
         <aside class="sidebar">
-            <h1>Molecule Search</h1>
-            <p>Enter a Molecule to fetch its 3D structure.</p>
+        <h1>Stereochemistry Explorer</h1>
+        <p>Search for a compound to analyze its 3D structure, conformations, and isomers.</p>
 
             <div class="search-box">
                 <input type="text" id="compound-input" placeholder="e.g., Butane, Methane, Aspirin...">
@@ -39,7 +39,7 @@
             <div id="welcome-screen" class="welcome-overlay">
                 <h2>Stereochemistry Viewer</h2>
                 <p>Enter a chemical name in the sidebar to generate its 3D structural model.</p>
-                <p style="font-size: 3rem; margin-top: 10px;">🧪</p>
+                <div class="emoji-icon">🧪</div>
             </div>
 
             <div id="viewer-3d" class="viewer-3d"></div>
@@ -87,13 +87,10 @@
             </div>
         </main>
     </div>
+    </div>
+    <footer class="project-info fade-in">
+        <span>Subject:</span> Stereochemistry &nbsp;&nbsp;|&nbsp;&nbsp; <span>Group:</span> 1
+    </footer>
     <script src="script.js"></script>
 </body>
-<footer>
-    <div class="project-info fade-in">
-            <span>
-                Subject: Stereochemistry. Group: 1.
-            </span>
-    </div>
-</footer>
 </html>
