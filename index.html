@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Stereochemistry Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.1/3Dmol-min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h1>Molecule Search</h1>
+            <p>Enter a Molecule to fetch its 3D structure.</p>
+
+            <div class="search-box">
+                <input type="text" id="compound-input" placeholder="e.g., Butane, Methane, Aspirin...">
+                <button onclick="searchCompound()">Search</button>
+            </div>
+
+            <div class="info-panel">
+                <h3>Instructions</h3>
+                <p><strong>Rotate:</strong> Click and drag the molecule.<br>
+                    <strong>Zoom:</strong> Use your mouse wheel.<br>
+                    <strong>Pan:</strong> Right-click and drag.
+                </p>
+                <p class="note">Notice: Carbon atoms are grey, Hydrogen atoms are white.</p>
+            </div>
+            <div style="margin-top: 20px; text-align: center;">
+                <a href="conformations.html"
+                    style="display: block; background-color: var(--primary-color); color: white; padding: 12px; text-decoration: none; border-radius: 4px; font-weight: bold; transition: 0.2s;">
+                    Open 2D Conformation Rotator
+                </a>
+            </div>
+            <div style="margin-top: 10px; text-align: center;">
+                <a href="chair.html"
+                    style="display: block; background-color: #007bff; color: white; padding: 12px; text-decoration: none; border-radius: 4px; font-weight: bold; transition: 0.2s;">
+                    Open Chair Flip Analysis
+                </a>
+            </div>
+        </aside>
+
+        <main class="viewer-container">
+            <div id="welcome-screen" class="welcome-overlay">
+                <h2>Stereochemistry Viewer</h2>
+                <p>Enter a chemical name in the sidebar to generate its 3D structural model.</p>
+                <p style="font-size: 3rem; margin-top: 10px;">🧪</p>
+            </div>
+
+            <div id="viewer-3d" class="viewer-3d"></div>
+            <div id="loading" class="loading" style="display: none;">Fetching Data...</div>
+
+            <div id="details-panel" class="details-panel hidden">
+                <h2 id="det-name">Molecule Info</h2>
+
+                <div class="basic-info-grid">
+                    <div class="info-card">
+                        <h4>Formula</h4>
+                        <p id="det-formula">-</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Molecular Weight</h4>
+                        <p id="det-weight">-</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>IUPAC Name</h4>
+                        <p id="det-iupac">-</p>
+                    </div>
+                </div>
+
+                <div id="advanced-stereochem" class="advanced-stereochem hidden">
+                    <h3>Advanced Stereochemistry Analysis</h3>
+                    <div class="advanced-grid">
+                        <div class="adv-card">
+                            <h4>Isomerism</h4>
+                            <p id="det-isomers">-</p>
+                        </div>
+                        <div class="adv-card">
+                            <h4>Configuration</h4>
+                            <p id="det-config">-</p>
+                        </div>
+                        <div class="adv-card">
+                            <h4>Geometry (VSEPR)</h4>
+                            <p id="det-vsepr">-</p>
+                        </div>
+                        <div class="adv-card">
+                            <h4>AXE & Bond Data</h4>
+                            <p id="det-axe">-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
