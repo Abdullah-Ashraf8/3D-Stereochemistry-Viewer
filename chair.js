@@ -120,10 +120,13 @@ const cyclicData = {
 function initializeChair() {
     const searched = localStorage.getItem('searchedMolecule');
     
+    // STRICT ERROR HANDLING
     if (searched && cyclicData[searched]) {
         activeCyclic = searched;
-    } else if (searched && searched.includes("cyclohexane")) {
-        alert(`Detailed chair analysis is not explicitly mapped for "${searched}". Defaulting to Trans-1,2-dimethylcyclohexane showcase.`);
+    } else {
+        alert(`Error: The molecule "${searched || 'Unknown'}" is not mapped for chair flip analysis. Please go back and search for a valid cyclic compound (e.g., cis-1,2-dimethylcyclohexane).`);
+        window.location.href = "index.html";
+        return; // Stop execution
     }
 
     document.getElementById('page-title').textContent = `Chair Flip: ${activeCyclic}`;
@@ -133,16 +136,6 @@ function initializeChair() {
 function triggerFlip() {
     isFlipped = !isFlipped;
     updateUI();
-    
-    const ring = document.getElementById('chair-ring');
-    const slant1 = "M 150 100 L 70 200 L 150 300 L 350 300 L 430 200 L 350 100 Z"; // Original Slant (C1-a-Up)
-    const slant2 = "M 150 300 L 70 200 L 150 100 L 350 100 L 430 200 L 350 300 Z"; // Flipped Slant (C1-a-Down)
-
-    if (isFlipped) {
-        ring.setAttribute('d', slant2);
-    } else {
-        ring.setAttribute('d', slant1);
-    }
 }
 
 function updateUI() {
@@ -150,65 +143,59 @@ function updateUI() {
     const currentState = isFlipped ? data.state2 : data.state1;
     const target = data.targetPos;
 
-    // Helper: Split data string like "CH3 (Up)" into "CH3" and "(Up)"
+    // Helper: Split string like "CH3 (Up)" into type and direction
     function splitInfo(dataString) {
-        const parts = dataString.split(' (');
-        return { type: parts[0], dir: '(' + parts[1] };
-    }
-
-    // Helper: Swap a <-> e labels depending on flip state
-    function getLabels(pos) {
-        if (!isFlipped) {
-            // Standard state: map a/e based on carbon numbering (C1 a-up, e-down, etc.)
-            const standardMap = { 1: { a: 'a', e: 'e' }, 2: { a: 'a', e: 'e' }, 3: { a: 'a', e: 'e' }, 4: { a: 'a', e: 'e' }, 5: { a: 'a', e: 'e' }, 6: { a: 'a', e: 'e' } };
-            return standardMap[pos];
-        } else {
-            // Flipped state: standard axial bonds become equatorial slant, swap labels
-            return { a: 'e', e: 'a' };
+        if (!dataString) return { type: "", dir: "" };
+        
+        // This regex looks for any text, followed by anything wrapped in parentheses
+        const match = dataString.match(/(.*?)\s*(\(.*?\))/);
+        if (match) {
+            return { type: match[1].trim(), dir: match[2].trim() };
         }
+        
+        // Fallback if no parentheses are found
+        return { type: dataString, dir: "" };
     }
 
-    // Iterate through all 6 positions, hide all secondary carbons, clear all labels
+    // Helper: Swap a/e labels upon flip
+    function getLabels(pos) {
+        if (!isFlipped) return { a: 'a', e: 'e' };
+        return { a: 'e', e: 'a' }; // Flipped state swaps labels
+    }
+
+    // 1. Hide all groups and set baseline labels
     for (let i = 1; i <= 6; i++) {
         document.getElementById(`pos-${i}`).style.display = 'none';
         
         const labels = getLabels(i);
-        document.getElementById(`t${i}-a-ae`).textContent = labels.a;
-        document.getElementById(`t${i}-e-ae`).textContent = labels.e;
-        
-        // Populate standard labels for all carbons (hidden except for C1/Cx)
-        document.getElementById(`t${i}-a-type`).textContent = "H";
-        document.getElementById(`t${i}-a-dir`).textContent = isFlipped ? "(Down)" : "(Up)"; // generic
-        document.getElementById(`t${i}-e-type`).textContent = "H";
-        document.getElementById(`t${i}-e-dir`).textContent = isFlipped ? "(Up)" : "(Down)"; // generic
+        // Default hidden groups just get generic H labels
+        document.getElementById(`t${i}-a-text`).textContent = `${labels.a}-H (Generic)`;
+        document.getElementById(`t${i}-e-text`).textContent = `${labels.e}-H (Generic)`;
     }
 
-    // Reveal C1 (Always show) and the target carbon (Cx)
+    // 2. Reveal active groups (C1 and target Cx)
     document.getElementById('pos-1').style.display = 'block';
     document.getElementById(`pos-${target}`).style.display = 'block';
 
-    // Populate data for C1 and target Cx from database
-    // Split combined strings into type and direction
+    // 3. Extract and format clean text
     const c1a = splitInfo(currentState.c1_a);
     const c1e = splitInfo(currentState.c1_e);
     const cxa = splitInfo(currentState.cx_a);
     const cxe = splitInfo(currentState.cx_e);
 
-    // Update C1 Text
-    document.getElementById('t1-a-type').textContent = c1a.type;
-    document.getElementById('t1-a-dir').textContent = c1a.dir;
-    document.getElementById('t1-e-type').textContent = c1e.type;
-    document.getElementById('t1-e-dir').textContent = c1e.dir;
+    const l1 = getLabels(1);
+    const lx = getLabels(target);
 
-    // Update target Cx Text
-    document.getElementById(`t${target}-a-type`).textContent = cxa.type;
-    document.getElementById(`t${target}-a-dir`).textContent = cxa.dir;
-    document.getElementById(`t${target}-e-type`).textContent = cxe.type;
-    document.getElementById(`t${target}-e-dir`).textContent = cxe.dir;
+    // Apply the clean, single-string text UI (e.g., "a-CH3 (Up)")
+    document.getElementById('t1-a-text').textContent = `${l1.a}-${c1a.type} ${c1a.dir}`;
+    document.getElementById('t1-e-text').textContent = `${l1.e}-${c1e.type} ${c1e.dir}`;
+    
+    document.getElementById(`t${target}-a-text`).textContent = `${lx.a}-${cxa.type} ${cxa.dir}`;
+    document.getElementById(`t${target}-e-text`).textContent = `${lx.e}-${cxe.type} ${cxe.dir}`;
 
     // Update Text Panel
     document.getElementById('isomer-name').textContent = `${data.isomer}: ${currentState.name}`;
-    document.getElementById('flip-state').textContent = isFlipped ? "Flipped Chair" : "Standard Chair";
+    document.getElementById('flip-state').textContent = isFlipped ? "Flipped Chair (Labels Swapped)" : "Standard Chair";
     document.getElementById('conf-desc').textContent = currentState.desc;
     
     const badge = document.getElementById('conf-stability');

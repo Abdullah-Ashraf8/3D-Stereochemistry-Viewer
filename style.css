@@ -1,41 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* =========================================
+   Design Tokens
+========================================= */
 :root {
-    --bg-color: #f4f7f6;
+    --bg-color: #f0f4f2;
     --sidebar-bg: #ffffff;
-    --primary-color: #00a676;
-    --text-main: #333333;
-    --text-muted: #666666;
+    --primary: #00c48c;
+    --primary-dark: #009e72;
+    --primary-glow: rgba(0, 196, 140, 0.18);
+    --accent: #ff6b6b;
+    --accent-dark: #fa5252;
+    --text-main: #1a1a2e;
+    --text-muted: #7a8b99;
+    --border: #e4eae7;
+    --card-bg: #f8fbfa;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.1);
+    --radius: 10px;
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================
+   Base
+========================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-main);
-}
-
-.container {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    height: 100vh;
-}
-
-/* Sidebar Styling */
-.sidebar {
-    background-color: var(--sidebar-bg);
-    padding: 2rem;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    z-index: 10;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    font-family: 'Space Mono', monospace;
     color: var(--text-main);
     margin-top: 0;
+    letter-spacing: -0.02em;
 }
 
+/* =========================================
+   Layout
+========================================= */
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+}
+
+/* =========================================
+   Sidebar
+========================================= */
+.sidebar {
+    background-color: var(--sidebar-bg);
+    padding: 2rem 1.75rem;
+    box-shadow: 3px 0 16px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    z-index: 10;
+    border-right: 1px solid var(--border);
+    animation: slideInLeft 0.4s ease-out both;
+}
+
+/* =========================================
+   Search Box
+========================================= */
 .search-box {
     display: flex;
     flex-direction: column;
@@ -43,49 +80,112 @@ h1 {
 }
 
 input[type="text"] {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    color: var(--text-main);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
 button {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--primary);
+    color: #fff;
     border: none;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: bold;
+    padding: 11px 14px;
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.2s;
+    letter-spacing: 0.02em;
+    transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    box-shadow: 0 3px 10px rgba(0, 196, 140, 0.25);
 }
 
 button:hover {
-    background-color: #008f65;
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(0, 196, 140, 0.35);
 }
 
+button:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   Tool Links (index.html sidebar)
+========================================= */
+.tools-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tool-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color var(--transition), border-color var(--transition),
+        color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.tool-link:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+/* =========================================
+   Info Panel
+========================================= */
 .info-panel {
-    background-color: var(--bg-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    background: linear-gradient(135deg, var(--card-bg) 0%, #eef6f2 100%);
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    border: 1px solid var(--border);
 }
 
 .note {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
-    margin-top: 15px;
+    margin-top: 12px;
     font-style: italic;
 }
 
-/* 3D Viewer Styling */
+/* =========================================
+   3D Viewer
+========================================= */
 .viewer-container {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: #000000;
+    background-color: #060d0a;
+}
+
+/* Light background for 2D pages (conformations, chair) */
+.viewer-container.light {
+    background-color: var(--bg-color);
 }
 
 .viewer-3d {
@@ -98,23 +198,25 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    font-size: 1.2rem;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px 20px;
-    border-radius: 5px;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 12px 22px;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
     z-index: 20;
+    animation: pulse 1.4s ease-in-out infinite;
 }
 
-/* Welcome Screen Overlay Styling */
+/* =========================================
+   Welcome Overlay
+========================================= */
 .welcome-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    color: #ffffff;
+    inset: 0;
+    background-color: #060d0a;
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -124,158 +226,339 @@ button:hover {
 }
 
 .welcome-overlay h2 {
-    color: var(--primary-color);
+    color: var(--primary);
     margin-bottom: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 1.6rem;
+    text-shadow: 0 0 20px var(--primary-glow);
 }
-/* Details Panel Styling */
+
+/* =========================================
+   Details Panel
+========================================= */
 .details-panel {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-top: 3px solid var(--primary-color);
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 3px solid var(--primary);
+    padding: 20px 24px;
     box-sizing: border-box;
-    max-height: 30%;
+    max-height: 32%;
     overflow-y: auto;
     color: var(--text-main);
     z-index: 10;
-    transition: transform 0.3s ease-in-out;
+    backdrop-filter: blur(8px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.35s ease;
+}
+
+.details-panel.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .details-panel h2 {
     margin-top: 0;
-    color: var(--primary-color);
+    color: var(--primary);
     text-transform: capitalize;
+    font-family: 'Space Mono', monospace;
 }
 
 .basic-info-grid,
 .advanced-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-bottom: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
 }
 
 .info-card,
 .adv-card {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #e9ecef;
+    background: var(--card-bg);
+    padding: 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.info-card:hover,
+.adv-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
 }
 
 .info-card h4,
 .adv-card h4 {
-    margin: 0 0 5px 0;
-    font-size: 0.85rem;
+    margin: 0 0 5px;
+    font-size: 0.78rem;
     color: var(--text-muted);
     text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 
 .info-card p,
 .adv-card p {
     margin: 0;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .advanced-stereochem h3 {
-    border-bottom: 2px solid #e9ecef;
-    padding-bottom: 5px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 6px;
     margin-top: 20px;
 }
+
 /* =========================================
-   2D Conformation Rotator Styles
+   2D Conformation Rotator
 ========================================= */
 .conformation-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: auto;
+    /* Changed from 100% to auto so it wraps the text perfectly */
+    min-height: 90%;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     margin: 20px;
-    padding: 20px;
+    padding: 40px 20px;
+    /* Added extra padding to stop things from touching the edges */
 }
 
 .svg-container {
     background-color: #f8f9fa;
     border: 2px solid #e9ecef;
     border-radius: 50%;
+    width: 320px;
+    /* Fixed width to stop squishing */
+    height: 320px;
+    /* Fixed height to keep it a perfect circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
     padding: 20px;
+    flex-shrink: 0;
+    /* Prevents the circle from being chopped off vertically */
+}
+
+.svg-container svg {
+    width: 100%;
+    height: 100%;
 }
 
 .svg-text {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
 }
+
 .label-ae {
     fill: var(--text-muted);
     font-size: 14px;
     font-style: italic;
     font-weight: normal;
 }
+
 .dynamic-group {
-    fill: var(--primary-color);
-    transition: all 0.3s ease;
+    fill: var(--primary);
+    transition: fill 0.3s ease;
 }
 
 .conf-panel {
     text-align: center;
-    max-width: 600px;
+    max-width: 580px;
 }
 
 .conf-panel h2 {
-    color: var(--primary-color);
+    color: var(--primary);
     margin-bottom: 5px;
+    font-family: 'Space Mono', monospace;
 }
 
+/* =========================================
+   Badges
+========================================= */
 .badge {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 5px 14px;
     border-radius: 20px;
-    background-color: #e9ecef;
-    font-size: 0.95rem;
-    font-weight: bold;
-    margin-bottom: 15px;
+    background: #e9ecef;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 0.03em;
 }
 
 .badge.most-stable {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.badge.unstable {
-    background-color: #f8d7da;
-    color: #721c24;
+    background: #c8f7e4;
+    color: #0a5c3a;
 }
 
 .badge.stable {
-    background-color: #cce5ff;
+    background: #cce5ff;
     color: #004085;
 }
 
+.badge.unstable {
+    background: #ffd8d8;
+    color: #7d1a1a;
+}
+
+/* =========================================
+   Rotate Button
+========================================= */
 .btn-rotate {
-    background-color: #ff6b6b;
-    color: white;
-    font-size: 1.1rem;
-    padding: 12px 24px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 1.05rem;
+    padding: 12px 28px;
     margin-top: 10px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(255, 107, 107, 0.3);
-    transition: background-color 0.2s;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+    transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .btn-rotate:hover {
-    background-color: #fa5252;
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 107, 107, 0.4);
+}
+
+.btn-rotate:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   Project Info Footer
+========================================= */
+.project-info {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.project-info span {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   Animations
+========================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.45s ease-out forwards;
+}
+
+/* =========================================
+   Mobile Layout
+========================================= */
+@media (max-width: 850px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .sidebar {
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        animation: none;
+    }
+
+    .project-info {
+        margin-top: 20px;
+    }
+
+    .viewer-container {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details-panel {
+        position: relative;
+        max-height: none;
+        border-top: none;
+        border-radius: var(--radius);
+        margin: 15px;
+        box-shadow: var(--shadow-md);
+    }
+
+    .svg-container {
+        width: 100% !important;
+        max-width: 340px;
+        height: auto !important;
+    }
+
+    .svg-container svg {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .conformation-container {
+        height: auto;
+        min-height: 100%;
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .conf-panel {
+        padding-bottom: 20px;
+    }
 }
