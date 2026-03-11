@@ -190,7 +190,31 @@ async function searchCompound() {
         document.getElementById('loading').style.display = 'none';
     }
 }
+// Function to handle clicking a popular molecule
+function quickSearch(molecule) {
+    document.getElementById('compound-input').value = molecule;
+    searchCompound();
+}
 
+// Add this logic INSIDE your existing searchCompound() function, 
+// right before the line: document.getElementById('details-panel').classList.remove('hidden');
+
+        // Dynamic Tools Logic
+        const isCyclic = inputName.includes("cyclohexane") || inputName.includes("cyclohexanol") || inputName.includes("cyclohexanamine");
+        // Check for specific complex molecules or basic ethanes
+        const has2D = ["dopamine", "ibuprofen", "amphetamine", "butane", "ethane", "propane", "1,2-dichloroethane"].includes(inputName) || inputName.includes("ethane");
+
+        const toolsSection = document.getElementById('dynamic-tools');
+        const btn2D = document.getElementById('btn-2d');
+        const btnChair = document.getElementById('btn-chair');
+
+        if (isCyclic || has2D) {
+            toolsSection.style.display = 'block';
+            btn2D.style.display = has2D ? 'block' : 'none';
+            btnChair.style.display = isCyclic ? 'block' : 'none';
+        } else {
+            toolsSection.style.display = 'none';
+        }
 
 
 

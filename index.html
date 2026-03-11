@@ -37,11 +37,23 @@
 
         <main class="viewer-container">
             <div id="welcome-screen" class="welcome-overlay">
-                <h2>Stereochemistry Viewer</h2>
+                <h2>Stereochemistry Explorer</h2>
                 <p>Enter a chemical name in the sidebar to generate its 3D structural model.</p>
                 <div class="emoji-icon">🧪</div>
-            </div>
 
+                <div class="popular-section fade-in" style="margin-top: 40px; width: 100%; max-width: 600px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px; font-family: 'Segoe UI', sans-serif;">Popular
+                        Molecules</h3>
+                    <div class="popular-grid">
+                        <button class="pop-btn" onclick="quickSearch('dopamine')">Dopamine</button>
+                        <button class="pop-btn" onclick="quickSearch('ibuprofen')">Ibuprofen</button>
+                        <button class="pop-btn" onclick="quickSearch('chlorocyclohexane')">Chlorocyclohexane</button>
+                        <button class="pop-btn" onclick="quickSearch('cyclohexanol')">Cyclohexanol</button>
+                        <button class="pop-btn" onclick="quickSearch('butane')">Butane</button>
+                        <button class="pop-btn"onclick="quickSearch('trans-1,2-dimethylcyclohexane')">Trans-1,2-Dimethylcyclohexane</button>
+                    </div>
+                </div>
+            </div>
             <div id="viewer-3d" class="viewer-3d"></div>
             <div id="loading" class="loading" style="display: none;">Fetching Data...</div>
 
@@ -83,6 +95,13 @@
                             <p id="det-axe">-</p>
                         </div>
                     </div>
+                </div>
+                <div id="dynamic-tools" class="tools-section"
+                    style="margin-top: 25px; display: none; border-top: 1px solid #eee; padding-top: 15px;">
+                    <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Interactive Analysis Available:</h3>
+                    <a href="conformations.html" id="btn-2d" class="tool-link" style="display: none;">⟳ Simulate 2D Sawhorse
+                        Rotation</a>
+                    <a href="chair.html" id="btn-chair" class="tool-link" style="display: none;">⮂ Simulate Chair Ring Flip</a>
                 </div>
             </div>
         </main>
