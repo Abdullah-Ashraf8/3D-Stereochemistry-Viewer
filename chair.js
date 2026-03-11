@@ -346,8 +346,7 @@ const cyclicData = {
         state2: { name: "Methyl Axial", c1_a: "CH3 (Up)", c1_e: "F (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "CH3 is forced axial." }
     },
 
-    // --- 34. MISSING TRIMETHYL CONFIGURATIONS (1,1,2 / 1,2,3 / 1,2,4) ---
-    // Note: For 1,1,2-trimethyl, we use C1 for the geminal pair, and C2 for the single methyl.
+
     "1,1,2-trimethylcyclohexane": {
         isomer: "Trisubstituted (Geminal + Mono)", targetPos: 2,
         state1: { name: "C2-Equatorial", c1_a: "CH3 (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The C2 methyl sits equatorially to minimize steric clash with the geminal C1 methyls." },
@@ -386,6 +385,117 @@ const cyclicData = {
         isomer: "Trisubstituted (Trans,Trans)", targetPos: 2, targetPos2: 4,
         state1: { name: "(e,e,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", cy_a: "H (Down)", cy_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Perfectly stable all-equatorial conformation." },
         state2: { name: "(a,a,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", cy_a: "CH3 (Down)", cy_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Severe 1,3-diaxial interactions." }
+    },
+    // --- 35. MISSING 1,2,5-TRIMETHYLCYCLOHEXANE ISOMERS ---
+    "1,2,5-trimethylcyclohexane (cis,trans)": {
+        isomer: "Trisubstituted (1,2-Cis, 1,5-Trans)", targetPos: 2, targetPos2: 5,
+        state1: { name: "(a,e,e)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "One axial, two equatorial groups." },
+        state2: { name: "(e,a,a)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Two axial groups cause severe diaxial strain." }
+    },
+    "1,2,5-trimethylcyclohexane (trans,cis)": {
+        isomer: "Trisubstituted (1,2-Trans, 1,5-Cis)", targetPos: 2, targetPos2: 5,
+        state1: { name: "(a,a,e)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Two axial groups, one equatorial." },
+        state2: { name: "(e,e,a)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Two equatorial groups, one axial." }
+    },
+
+    // --- 36. FAMOUS 1,2,5-TRISUBSTITUTED REAL-WORLD MOLECULES ---
+    "(-)-menthol": {
+        isomer: "Trisubstituted (1R,2S,5R)", targetPos: 2, targetPos2: 5,
+        state1: { name: "(a,a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "i-Pr (Down)", cx_e: "H (Up)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "All three bulky groups are axial. Non-existent at room temp." },
+        state2: { name: "(e,e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "i-Pr (Up)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The natural menthol conformation. All three groups sit beautifully on the equator." }
+    },
+    "neomenthol": {
+        isomer: "Trisubstituted (1S,2S,5R)", targetPos: 2, targetPos2: 5,
+        state1: { name: "(a,e,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "i-Pr (Up)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH is axial, but the massive i-Pr and Me groups are safely equatorial." },
+        state2: { name: "(e,a,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "i-Pr (Down)", cx_e: "H (Up)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "i-Pr and Me are forced axial. Highly unfavorable." }
+    },
+
+    // --- 37. EXTREME STRAIN (TWIST-BOAT FORCERS) ---
+    "trans-1,3-di-tert-butylcyclohexane": {
+        isomer: "Trans-1,3 (Twist-Boat Forcer)", targetPos: 3,
+        state1: { name: "(a,e) - Theoretical", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "t-Bu (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "One massive t-Bu is axial. In reality, this molecule escapes the chair entirely into a twist-boat." },
+        state2: { name: "(e,a) - Theoretical", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "t-Bu (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Mirrored axial t-Bu. Also highly unstable." }
+    },
+    "cis-1,4-di-tert-butylcyclohexane": {
+        isomer: "Cis-1,4 (Twist-Boat Forcer)", targetPos: 4,
+        state1: { name: "(a,e) - Theoretical", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "t-Bu (Up)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "One t-Bu is axial. Massive steric strain forces the actual molecule into a twist-boat." },
+        state2: { name: "(e,a) - Theoretical", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "t-Bu (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Mirrored axial t-Bu." }
+    },
+    "1,2,5-trimethylcyclohexane": {
+        isomer: "Generic 1,2,5 Isomer", targetPos: 2, targetPos2: 5,
+        state1: { 
+            name: "(e,e,e) - trans,trans", 
+            c1_a: "H (Up)", c1_e: "CH3 (Down)", 
+            cx_a: "H (Down)", cx_e: "CH3 (Up)", 
+            cy_a: "H (Up)", cy_e: "CH3 (Down)", 
+            stabilityClass: "most-stable", stabilityText: "Most Stable", 
+            desc: "Generic representation placing all three bulky CH3 groups safely equatorial for maximum stability." 
+        },
+        state2: { 
+            name: "(a,e,e) - cis,trans", 
+            c1_a: "CH3 (Up)", c1_e: "H (Down)", 
+            cx_a: "H (Down)", cx_e: "CH3 (Up)", 
+            cy_a: "H (Up)", cy_e: "CH3 (Down)", 
+            stabilityClass: "stable", stabilityText: "Stable Isomer", 
+            desc: "Generic representation showing a stable configuration with one axial and two equatorial groups." 
+        }
+    },
+    "1,2,3-trimethylcyclohexane": {
+        isomer: "Generic 1,2,3 Isomer", targetPos: 2, targetPos2: 3,
+        state1: { 
+            name: "(e,e,e) Configuration", 
+            c1_a: "H (Up)", c1_e: "CH3 (Down)", 
+            cx_a: "CH3 (Down)", cx_e: "H (Up)", 
+            cy_a: "H (Up)", cy_e: "CH3 (Down)", 
+            stabilityClass: "most-stable", stabilityText: "Most Stable", 
+            desc: "Generic representation placing all three CH3 groups safely equatorial to minimize adjacent strain." 
+        },
+        state2: { 
+            name: "(a,e,e) Configuration", 
+            c1_a: "CH3 (Up)", c1_e: "H (Down)", 
+            cx_a: "H (Down)", cx_e: "CH3 (Up)", 
+            cy_a: "H (Up)", cy_e: "CH3 (Down)", 
+            stabilityClass: "stable", stabilityText: "Stable Isomer", 
+            desc: "Generic representation with one axial and two equatorial groups." 
+        }
+    },
+    "1,2,4-trimethylcyclohexane": {
+        isomer: "Generic 1,2,4 Isomer", targetPos: 2, targetPos2: 4,
+        state1: { 
+            name: "(e,e,e) Configuration", 
+            c1_a: "H (Up)", c1_e: "CH3 (Down)", 
+            cx_a: "H (Down)", cx_e: "CH3 (Up)", 
+            cy_a: "H (Down)", cy_e: "CH3 (Up)", 
+            stabilityClass: "most-stable", stabilityText: "Most Stable", 
+            desc: "Generic representation placing all three CH3 groups safely equatorial." 
+        },
+        state2: { 
+            name: "(a,e,e) Configuration", 
+            c1_a: "CH3 (Up)", c1_e: "H (Down)", 
+            cx_a: "H (Down)", cx_e: "CH3 (Up)", 
+            cy_a: "H (Down)", cy_e: "CH3 (Up)", 
+            stabilityClass: "stable", stabilityText: "Stable Isomer", 
+            desc: "Generic representation with one axial and two equatorial groups." 
+        }
+    },
+    "1,3,5-trimethylcyclohexane": {
+        isomer: "Generic 1,3,5 Isomer", targetPos: 3, targetPos2: 5,
+        state1: { 
+            name: "(e,e,e) Configuration", 
+            c1_a: "H (Up)", c1_e: "CH3 (Down)", 
+            cx_a: "H (Up)", cx_e: "CH3 (Down)", 
+            cy_a: "H (Up)", cy_e: "CH3 (Down)", 
+            stabilityClass: "most-stable", stabilityText: "Most Stable", 
+            desc: "Generic representation placing all three CH3 groups safely equatorial. This is a classic global minimum example." 
+        },
+        state2: { 
+            name: "(a,e,e) Configuration", 
+            c1_a: "CH3 (Up)", c1_e: "H (Down)", 
+            cx_a: "H (Up)", cx_e: "CH3 (Down)", 
+            cy_a: "H (Up)", cy_e: "CH3 (Down)", 
+            stabilityClass: "stable", stabilityText: "Stable Isomer", 
+            desc: "Generic representation with one axial and two equatorial groups." 
+        }
     }
 };
 

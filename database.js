@@ -6134,5 +6134,201 @@ const moleculeData = {
             240: { name: "Eclipsed (O-Phenyl)", cssClass: "stable", type: "Local Minimum", desc: "A C-H bond eclipses the single C-O bond." },
             300: { name: "Staggered (Perpendicular)", cssClass: "unstable", type: "High Energy", desc: "The C-H bonds are staggered relative to the planar system." }
         }
+    },
+    "chloroethane": {
+        "bond": "C1-C2",
+        "groups": {
+            "f_top": "Cl",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "H",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The Cl and H groups are staggered. This minimizes steric strain and dipole interactions."
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The Cl group eclipses an H atom. High torsional strain."
+            },
+            "120": {
+                "name": "Staggered",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The Cl and H groups are staggered. This minimizes steric strain and dipole interactions."
+            },
+            "180": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The Cl group eclipses an H atom. High torsional strain."
+            },
+            "240": {
+                "name": "Staggered",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The Cl and H groups are staggered. This minimizes steric strain and dipole interactions."
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The Cl group eclipses an H atom. High torsional strain."
+            }
+        }
+    },
+    "2,3-dimethylbutane": {
+        "bond": "C2-C3",
+        "groups": {
+            "f_top": "H",
+            "f_right": "CH3",
+            "f_left": "CH3",
+            "b_top": "H",
+            "b_right": "CH3",
+            "b_left": "CH3"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti (H-H)",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The H atoms are 180\u00b0 apart. There are only two gauche CH3-CH3 interactions, making this the lowest energy staggered conformation."
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "A CH3 group eclipses another CH3 group, and H eclipses CH3. Severe steric strain."
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The H atoms are 60\u00b0 apart. There are three gauche CH3-CH3 interactions, making it less stable than the anti conformation."
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "Both sets of CH3 groups directly eclipse each other. Maximum steric repulsion!"
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The H atoms are 60\u00b0 apart. There are three gauche CH3-CH3 interactions, making it less stable than the anti conformation."
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "A CH3 group eclipses another CH3 group, and H eclipses CH3. Severe steric strain."
+            }
+        }
+    },
+    "acetylcholine": {
+        "bond": "C(alpha)-C(beta)",
+        "groups": {
+            "f_top": "N(CH3)3+",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "OCOCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The bulky N(CH3)3+ and OCOCH3 groups are 180\u00b0 apart. This minimizes steric strain but lacks stabilizing electrostatic attraction."
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The N(CH3)3+ group eclipses an H atom. High torsional strain."
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The N(CH3)3+ and OCOCH3 groups are 60\u00b0 apart. This is the global minimum due to a strong electrostatic attraction between the positively charged nitrogen and the partially negative oxygen."
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The bulky groups directly eclipse each other. Maximum steric repulsion!"
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The N(CH3)3+ and OCOCH3 groups are 60\u00b0 apart. Stabilized by electrostatic attraction."
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OCOCH3 group eclipses an H atom. High torsional strain."
+            }
+        }
+    },
+    "serotonin": {
+        "bond": "C(alpha)-C(beta) [Ethylamine Chain]",
+        "groups": {
+            "f_top": "NH2",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "5-HT Indole",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The bulky Indole ring and the NH2 group are 180\u00b0 apart. This extended conformation minimizes steric strain."
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The NH2 group eclipses a Hydrogen atom. High torsional strain."
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Folded (Gauche)",
+                "desc": "The Indole ring and NH2 are 60\u00b0 apart. Important bioactive folded conformation for receptor binding."
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The massive Indole ring directly eclipses the NH2 group. Maximum steric repulsion!"
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Folded (Gauche)",
+                "desc": "The Indole ring and NH2 are 60\u00b0 apart. Important bioactive folded conformation for receptor binding."
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The NH2 eclipses a Hydrogen atom. High torsional strain."
+            }
+        }
     }
 };
