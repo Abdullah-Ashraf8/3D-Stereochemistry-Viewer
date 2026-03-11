@@ -108,6 +108,49 @@ const showcaseData = {
         axe: "AX3E1. Steric number = 4. Bond Order: N-H is 1."
     }
 };
+const apiSafeMapper = {
+    // Maps your generic chair.js keys to strict API names or CIDs
+    "1,2-dimethylcyclohexane": "trans-1,2-dimethylcyclohexane", 
+    "cyclohexane": "cyclohexane",
+    "chlorocyclohexane": "chlorocyclohexane",
+    // Or use explicit PubChem CIDs if 3Dmol supports 'cid:12345'
+    "aspirin": "cid:2244",
+    // === 1. STRIP PARENTHESES FROM TRISUBSTITUTED ISOMERS ===
+    // PubChem will return the base 3D coordinate model for these if we remove the tags
+    "1,2,5-trimethylcyclohexane (cis,cis)": "1,2,5-trimethylcyclohexane",
+    "1,2,5-trimethylcyclohexane (trans,trans)": "1,2,5-trimethylcyclohexane",
+    "1,3,5-trimethylcyclohexane (cis,cis)": "1,3,5-trimethylcyclohexane",
+    "1,3,5-trimethylcyclohexane (trans,cis)": "1,3,5-trimethylcyclohexane",
+    "1,2,3-trimethylcyclohexane (cis,cis)": "1,2,3-trimethylcyclohexane",
+    "1,2,3-trimethylcyclohexane (trans,trans)": "1,2,3-trimethylcyclohexane",
+    "1,2,3-trimethylcyclohexane (cis,trans)": "1,2,3-trimethylcyclohexane",
+    "1,2,4-trimethylcyclohexane (cis,cis)": "1,2,4-trimethylcyclohexane",
+    "1,2,4-trimethylcyclohexane (trans,trans)": "1,2,4-trimethylcyclohexane",
+
+    // === 2. FIX HALOHYDRIN / ALCOHOL SUFFIXES ===
+    // PubChem prefers 'cyclohexanol' over 'cyclohexan-1-ol'
+    "trans-2-chlorocyclohexan-1-ol": "trans-2-chlorocyclohexanol",
+    "cis-2-chlorocyclohexan-1-ol": "cis-2-chlorocyclohexanol",
+    "trans-3-chlorocyclohexan-1-ol": "trans-3-chlorocyclohexanol",
+    "cis-3-chlorocyclohexan-1-ol": "cis-3-chlorocyclohexanol",
+    "trans-4-chlorocyclohexan-1-ol": "trans-4-chlorocyclohexanol",
+    "cis-4-chlorocyclohexan-1-ol": "cis-4-chlorocyclohexanol",
+    
+    "trans-2-fluorocyclohexan-1-ol": "trans-2-fluorocyclohexanol",
+    "cis-2-fluorocyclohexan-1-ol": "cis-2-fluorocyclohexanol",
+    "trans-3-fluorocyclohexan-1-ol": "trans-3-fluorocyclohexanol",
+    "cis-3-fluorocyclohexan-1-ol": "cis-3-fluorocyclohexanol",
+    "trans-4-fluorocyclohexan-1-ol": "trans-4-fluorocyclohexanol",
+    "cis-4-fluorocyclohexan-1-ol": "cis-4-fluorocyclohexanol",
+
+    "trans-2-methoxycyclohexan-1-ol": "trans-2-methoxycyclohexanol",
+    "cis-2-methoxycyclohexan-1-ol": "cis-2-methoxycyclohexanol",
+    "trans-3-methoxycyclohexan-1-ol": "trans-3-methoxycyclohexanol",
+    "cis-3-methoxycyclohexan-1-ol": "cis-3-methoxycyclohexanol",
+    "trans-4-methoxycyclohexan-1-ol": "trans-4-methoxycyclohexanol",
+    "cis-4-methoxycyclohexan-1-ol": "cis-4-methoxycyclohexanol",
+    
+};
 window.onload = function() {
     let element = document.getElementById('viewer-3d');
     let config = { backgroundColor: 'black' };
@@ -142,12 +185,23 @@ async function searchCompound() {
     document.getElementById('details-panel').classList.remove('hidden');
     document.getElementById('loading').style.display = 'block';
 
+    // ==========================================
+    // API MAPPING & ENCODING LOGIC
+    // ==========================================
+    // 1. Check if the molecule needs a specific API name; otherwise, use what the user typed
+    let fetchName = apiSafeMapper[inputName] ? apiSafeMapper[inputName] : inputName;
+    
+    // 2. Encode the string so commas and numbers don't break the URL
+    let safeFetchName = encodeURIComponent(fetchName);
+    // ==========================================
+
     try {
-        const sdfResponse = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${inputName}/SDF?record_type=3d`);
+        // Use safeFetchName for the API calls
+        const sdfResponse = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${safeFetchName}/SDF?record_type=3d`);
         if (!sdfResponse.ok) throw new Error("Could not find 3D data.");
         const sdfData = await sdfResponse.text();
 
-        const propResponse = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${inputName}/property/MolecularFormula,MolecularWeight,IUPACName/JSON`);
+        const propResponse = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${safeFetchName}/property/MolecularFormula,MolecularWeight,IUPACName/JSON`);
         if (!propResponse.ok) throw new Error("Could not find property data.");
         const propData = await propResponse.json();
         const properties = propData.PropertyTable.Properties[0];
@@ -158,6 +212,7 @@ async function searchCompound() {
         viewer.zoomTo();
         viewer.render();
 
+        // Keep inputName here so the UI still displays the clean, simple name the user searched
         document.getElementById('det-name').innerText = inputName;
         document.getElementById('det-formula').innerText = properties.MolecularFormula || "N/A";
         document.getElementById('det-weight').innerText = properties.MolecularWeight ? properties.MolecularWeight + " g/mol" : "N/A";
@@ -172,14 +227,29 @@ async function searchCompound() {
             document.getElementById('det-vsepr').innerText = showcaseData[inputName].vsepr;
             document.getElementById('det-axe').innerHTML = showcaseData[inputName].axe.replace(/AX(\d)/g, "AX<sub>$1</sub>").replace(/E(\d)/g, "E<sub>$1</sub>");
             
-
             advSection.classList.remove('hidden');
         } else {
             advSection.classList.add('hidden');
-            vseprImage.style.display = 'none'; // Hide image if no data
+            vseprImage.style.display = 'none';
         }
 
         document.getElementById('details-panel').classList.remove('hidden');
+
+        // Dynamic Tools Logic
+        const isCyclic = inputName.includes("cyclohexane") || inputName.includes("cyclohexanol") || inputName.includes("cyclohexanamine");
+        const has2D = ["dopamine", "ibuprofen", "amphetamine", "butane", "ethane", "propane", "1,2-dichloroethane"].includes(inputName) || inputName.includes("ethane");
+
+        const toolsSection = document.getElementById('dynamic-tools');
+        const btn2D = document.getElementById('btn-2d');
+        const btnChair = document.getElementById('btn-chair');
+
+        if (isCyclic || has2D) {
+            toolsSection.style.display = 'block';
+            btn2D.style.display = has2D ? 'block' : 'none';
+            btnChair.style.display = isCyclic ? 'block' : 'none';
+        } else {
+            toolsSection.style.display = 'none';
+        }
 
     } catch (error) {
         alert(error.message);
@@ -195,26 +265,6 @@ function quickSearch(molecule) {
     document.getElementById('compound-input').value = molecule;
     searchCompound();
 }
-
-// Add this logic INSIDE your existing searchCompound() function, 
-// right before the line: document.getElementById('details-panel').classList.remove('hidden');
-
-        // Dynamic Tools Logic
-        const isCyclic = inputName.includes("cyclohexane") || inputName.includes("cyclohexanol") || inputName.includes("cyclohexanamine");
-        // Check for specific complex molecules or basic ethanes
-        const has2D = ["dopamine", "ibuprofen", "amphetamine", "butane", "ethane", "propane", "1,2-dichloroethane"].includes(inputName) || inputName.includes("ethane");
-
-        const toolsSection = document.getElementById('dynamic-tools');
-        const btn2D = document.getElementById('btn-2d');
-        const btnChair = document.getElementById('btn-chair');
-
-        if (isCyclic || has2D) {
-            toolsSection.style.display = 'block';
-            btn2D.style.display = has2D ? 'block' : 'none';
-            btnChair.style.display = isCyclic ? 'block' : 'none';
-        } else {
-            toolsSection.style.display = 'none';
-        }
 
 
 

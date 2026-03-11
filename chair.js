@@ -3,465 +3,389 @@ let activeCyclic = "trans-1,2-dimethylcyclohexane"; // Default showcase
 
 // === LOCAL DATABASE FOR CYCLIC COMPOUNDS ===
 const cyclicData = {
-    // --- GENERIC BASES ---
+    // --- 1. GENERIC BASES (4) ---
     "cyclohexane": {
         isomer: "Generic Cyclohexane", targetPos: 1,
-        state1: { name: "Generic Chair", c1_a: "H (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Standard chair conformation. No steric or torsional strain." },
-        state2: { name: "Flipped Generic Chair", c1_a: "H (Down)", c1_e: "H (Up)", cx_a: "H (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "The ring flip changes a <-> e but the overall energy state is identical." }
+        state1: { name: "Generic Chair", c1_a: "H (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Standard chair conformation." },
+        state2: { name: "Flipped Generic Chair", c1_a: "H (Down)", c1_e: "H (Up)", cx_a: "H (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Identical energy state." }
     },
     "1,2-dimethylcyclohexane": {
-        isomer: "Generic 1,2 Isomer (Showing Stable)", targetPos: 2,
-        state1: { name: "(e,e) - trans", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable (0.9 kcal/mol)", desc: "Places both bulky CH3 groups equatorial. This is the lowest energy generic form." },
-        state2: { name: "(a,e) - cis", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "stable", stabilityText: "Stable (2.7 kcal/mol)", desc: "One group is axial, one equatorial. Flipped cis forms are identical in energy." }
+        isomer: "Generic 1,2 Isomer", targetPos: 2,
+        state1: { name: "(e,e) - trans", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Places both bulky CH3 groups equatorial." },
+        state2: { name: "(a,e) - cis", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "stable", stabilityText: "Stable", desc: "One group is axial, one equatorial." }
     },
     "1,3-dimethylcyclohexane": {
-        isomer: "Generic 1,3 Isomer (Showing Stable)", targetPos: 3,
-        state1: { name: "(e,e) - cis", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable (0 kcal/mol)", desc: "Places both bulky CH3 groups equatorial. No steric strain." },
-        state2: { name: "(a,e) - trans", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "stable", stabilityText: "Stable Isomer", desc: "Generic representation of the less stable isomer (a,e)." }
+        isomer: "Generic 1,3 Isomer", targetPos: 3,
+        state1: { name: "(e,e) - cis", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Places both bulky CH3 groups equatorial." },
+        state2: { name: "(a,e) - trans", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "stable", stabilityText: "Stable", desc: "Generic representation of less stable isomer." }
     },
     "1,4-dimethylcyclohexane": {
-        isomer: "Generic 1,4 Isomer (Showing Stable)", targetPos: 4,
-        state1: { name: "(e,e) - trans", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Places both bulky CH3 groups equatorial on opposite sides of the ring." },
-        state2: { name: "(a,e) - cis", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "stable", stabilityText: "Stable Isomer", desc: "Generic representation of the cis (a,e) isomer." }
+        isomer: "Generic 1,4 Isomer", targetPos: 4,
+        state1: { name: "(e,e) - trans", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Places both bulky CH3 groups equatorial." },
+        state2: { name: "(a,e) - cis", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "stable", stabilityText: "Stable Isomer", desc: "Generic representation of the cis isomer." }
+    },
+
+    // --- 2. MONO-SUBSTITUTED (24) ---
+    "fluorocyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Minor 1,3-diaxial strain." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Prefers equatorial slightly." } },
+    "chlorocyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "1,3-diaxial steric strain." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Clear of diaxial interactions." } },
+    "bromocyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Steric repulsion." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Spacious equatorial position." } },
+    "iodocyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Massive atom, but long bond reduces strain." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Favors equatorial." } },
+    "methylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Classic 1,3-diaxial strain." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Sits comfortably on the equator." } },
+    "ethylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "Ethyl (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Rotates to minimize clash, but still strained." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Ethyl (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial preferred." } },
+    "propylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "Pr (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Similar A-value to ethyl." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Pr (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial preferred." } },
+    "isopropylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "i-Pr (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Branching causes massive crowding." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "i-Pr (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Strongly favors equatorial." } },
+    "isobutylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "i-Bu (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Branching one carbon away." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "i-Bu (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial strictly favored." } },
+    "sec-butylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "sec-Bu (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Intense diaxial interactions." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "sec-Bu (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Safely on the equator." } },
+    "tert-butylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Does not exist at room temp." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Locks the ring." } },
+    "neopentylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "Neo (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Huge steric bulk." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Neo (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Provides relief." } },
+    "phenylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "Ph (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Aromatic ring clashes severely." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Ph (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Phenyl ring sits equatorially." } },
+    "trifluoromethylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "CF3 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Intense repulsion." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "CF3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Favored." } },
+    "cyclohexanol": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Hydroxyl is axial." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Stable equatorial position." } },
+    "cyclohexanamine": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "NH2 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Amino group is axial." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "NH2 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Minimizes steric strain." } },
+    "cyanocyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "CN (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "stable", stabilityText: "Slightly Less Stable", desc: "Linear group causes little strain." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "CN (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Preferred state." } },
+    "nitrocyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "NO2 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Bulky NO2 clashes." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "NO2 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Favors equatorial." } },
+    "methoxycyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "OCH3 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Mild steric strain." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "OCH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Safely equatorial." } },
+    "ethoxycyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "OEt (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Ether chain clashes." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "OEt (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Safely equatorial." } },
+    "isopropoxycyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "OiPr (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Branched ether clashes." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "OiPr (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial favored heavily." } },
+    "phenoxycyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "OPh (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Extreme steric hindrance." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "OPh (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Favors equatorial." } },
+    "cyclohexanethiol": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "SH (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Larger sulfur clashes." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "SH (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Favors equatorial." } },
+    "vinylcyclohexane": { isomer: "Mono-substituted", targetPos: 1, state1: { name: "Axial", c1_a: "Vinyl (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Sp2 carbons mitigate some strain." }, state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Vinyl (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial preferred." } },
+
+    // --- 3. SPECIFIC DIMETHYL ISOMERS (6) ---
+    "trans-1,2-dimethylcyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Severe diaxial interactions." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Groups are equatorial." } },
+    "cis-1,2-dimethylcyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "stable", stabilityText: "Stable", desc: "One a, one e. Standard energy." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Stable", desc: "Groups swapped, energy identical." } },
+    "cis-1,3-dimethylcyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Highly stable, e,e conformation." }, state2: { name: "(a,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Groups are forced axial." } },
+    "trans-1,3-dimethylcyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy identical." } },
+    "trans-1,4-dimethylcyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both groups equatorial." }, state2: { name: "(a,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Groups forced axial." } },
+    "cis-1,4-dimethylcyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy identical." } },
+
+    // --- 4. DIFLUOROCYCLOHEXANES (6) ---
+    "trans-1,2-difluorocyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "1,3-diaxial strain." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1,2-difluorocyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Standard energy." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Flip alternates halogens." } },
+    "trans-1,3-difluorocyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy state identical." } },
+    "cis-1,3-difluorocyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Highly stable e,e conformation." }, state2: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced axial." } },
+    "trans-1,4-difluorocyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both groups equatorial." }, state2: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced axial." } },
+    "cis-1,4-difluorocyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy state identical." } },
+
+    // --- 5. DICHLOROCYCLOHEXANES (6) ---
+    "trans-1,2-dichlorocyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Severe diaxial clash." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1,2-dichlorocyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Identical energy." } },
+    "trans-1,3-dichlorocyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Cl (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "Cl (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+    "cis-1,3-dichlorocyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Up)", cx_e: "Cl (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Highly stable e,e." }, state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "Cl (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Severe direct 1,3 repulsion." } },
+    "trans-1,4-dichlorocyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced axial." } },
+    "cis-1,4-dichlorocyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+
+    // --- 6. DIBROMOCYCLOHEXANES (6) ---
+    "trans-1,2-dibromocyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Br (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Massive diaxial interactions." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "Br (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Bromines sit on equator." } },
+    "cis-1,2-dibromocyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Br (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Br (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy identical." } },
+    "trans-1,3-dibromocyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Br (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Br (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+    "cis-1,3-dibromocyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Up)", cx_e: "Br (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Br (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Incredibly high strain." } },
+    "trans-1,4-dibromocyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "Br (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Bromines equatorial." }, state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Br (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced axial." } },
+    "cis-1,4-dibromocyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Br (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Br (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Flip perfectly." } },
+
+    // --- 7. DIIODOCYCLOHEXANES (6) ---
+    "trans-1,2-diiodocyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Large iodines forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial placement." } },
+    "cis-1,2-diiodocyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy identical." } },
+    "trans-1,3-diiodocyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "I (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "I (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+    "cis-1,3-diiodocyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H (Up)", cx_e: "I (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "I (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Direct 1,3 interactions." } },
+    "trans-1,4-diiodocyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Iodines equatorial." }, state2: { name: "(a,a)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced axial." } },
+    "cis-1,4-diiodocyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Flip perfectly." } },
+
+    // --- 8. DIOLS (6) ---
+    "trans-1,2-cyclohexanediol": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Diaxial clash." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial allows H-bonding." } },
+    "cis-1,2-cyclohexanediol": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+    "trans-1,3-cyclohexanediol": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "OH (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "OH (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+    "cis-1,3-cyclohexanediol": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Up)", cx_e: "OH (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "OH (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "H-bond forms but steric clash remains." } },
+    "trans-1,4-cyclohexanediol": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1,4-cyclohexanediol": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+
+    // --- 9. DIAMINES (6) ---
+    "trans-1,2-cyclohexanediamine": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "NH2 (Up)", c1_e: "H (Down)", cx_a: "NH2 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Steric clash." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "NH2 (Down)", cx_a: "H (Down)", cx_e: "NH2 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial placement." } },
+    "cis-1,2-cyclohexanediamine": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "NH2 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "NH2 (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "NH2 (Down)", cx_a: "NH2 (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+    "trans-1,3-cyclohexanediamine": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "NH2 (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "NH2 (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "NH2 (Down)", cx_a: "NH2 (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+    "cis-1,3-cyclohexanediamine": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "NH2 (Down)", cx_a: "H (Up)", cx_e: "NH2 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "NH2 (Up)", c1_e: "H (Down)", cx_a: "NH2 (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced axial." } },
+    "trans-1,4-cyclohexanediamine": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "NH2 (Down)", cx_a: "H (Down)", cx_e: "NH2 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "NH2 (Up)", c1_e: "H (Down)", cx_a: "NH2 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced axial." } },
+    "cis-1,4-cyclohexanediamine": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "NH2 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "NH2 (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "NH2 (Down)", cx_a: "NH2 (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+
+    // --- 10. DIETHERS (6) ---
+    "trans-1,2-dimethoxycyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "OMe (Up)", c1_e: "H (Down)", cx_a: "OMe (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Steric clash." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OMe (Down)", cx_a: "H (Down)", cx_e: "OMe (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial placement." } },
+    "cis-1,2-dimethoxycyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "OMe (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OMe (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OMe (Down)", cx_a: "OMe (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+    "trans-1,3-dimethoxycyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "OMe (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "OMe (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OMe (Down)", cx_a: "OMe (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+    "cis-1,3-dimethoxycyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OMe (Down)", cx_a: "H (Up)", cx_e: "OMe (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OMe (Up)", c1_e: "H (Down)", cx_a: "OMe (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced axial." } },
+    "trans-1,4-dimethoxycyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OMe (Down)", cx_a: "H (Down)", cx_e: "OMe (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OMe (Up)", c1_e: "H (Down)", cx_a: "OMe (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced axial." } },
+    "cis-1,4-dimethoxycyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "OMe (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OMe (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OMe (Down)", cx_a: "OMe (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." } },
+
+    // --- 11. HETERO: METHYL / T-BUTYL (LOCKED) (6) ---
+    "trans-1-tert-butyl-2-methylcyclohexane": { isomer: "Trans-1,2 (Locked)", targetPos: 2, state1: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Forced axial t-Bu." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Locked (e,e)." } },
+    "cis-1-tert-butyl-2-methylcyclohexane": { isomer: "Cis-1,2 (Locked)", targetPos: 2, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu is axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "t-Bu locks equatorial." } },
+    "trans-1-tert-butyl-3-methylcyclohexane": { isomer: "Trans-1,3 (Locked)", targetPos: 3, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu is axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "t-Bu claims equatorial." } },
+    "cis-1-tert-butyl-3-methylcyclohexane": { isomer: "Cis-1,3 (Locked)", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both safely equatorial." }, state2: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Impossible state." } },
+    "trans-1-tert-butyl-4-methylcyclohexane": { isomer: "Trans-1,4 (Locked)", targetPos: 4, state1: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Both axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-tert-butyl-4-methylcyclohexane": { isomer: "Cis-1,4 (Locked)", targetPos: 4, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Locked Me axial." } },
+
+    // --- 12. HETERO: METHYL / CHLORINE (6) ---
+    "trans-1-chloro-2-methylcyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-chloro-2-methylcyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me goes equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me forced axial." } },
+    "trans-1-chloro-3-methylcyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me goes equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me forced axial." } },
+    "cis-1-chloro-3-methylcyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-1-chloro-4-methylcyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1-chloro-4-methylcyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me goes equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me forced axial." } },
+
+    // --- 13. HETERO: METHYL / FLUORINE (6) ---
+    "trans-1-fluoro-2-methylcyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Axial clash." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-fluoro-2-methylcyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me strongly prefers equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me forced axial." } },
+    "trans-1-fluoro-3-methylcyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me dominates equatorial position." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me forced axial." } },
+    "cis-1-fluoro-3-methylcyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both safely equatorial." }, state2: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-1-fluoro-4-methylcyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1-fluoro-4-methylcyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me axial." } },
+
+    // --- 14. HETERO: METHYL / BROMINE (6) ---
+    "trans-1-bromo-2-methylcyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Axial clash." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-bromo-2-methylcyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me axial." } },
+    "trans-1-bromo-3-methylcyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me axial." } },
+    "cis-1-bromo-3-methylcyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both safely equatorial." }, state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-1-bromo-4-methylcyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1-bromo-4-methylcyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me axial." } },
+
+    // --- 15. HETERO: METHYL / IODINE (6) ---
+    "trans-1-iodo-2-methylcyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Axial clash." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-iodo-2-methylcyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me dominates equatorial position." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me forced axial." } },
+    "trans-1-iodo-3-methylcyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me axial." } },
+    "cis-1-iodo-3-methylcyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both safely equatorial." }, state2: { name: "(a,a)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-1-iodo-4-methylcyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1-iodo-4-methylcyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me axial." } },
+
+    // --- 16. HETERO: METHYL / HYDROXYL (6) ---
+    "trans-1-methyl-2-cyclohexanol": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-methyl-2-cyclohexanol": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me goes equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me forced axial." } },
+    "trans-1-methyl-3-cyclohexanol": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me goes equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me forced axial." } },
+    "cis-1-methyl-3-cyclohexanol": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-1-methyl-4-cyclohexanol": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1-methyl-4-cyclohexanol": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Me goes equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Me forced axial." } },
+
+    // --- 17. HETERO: METHYL / ETHYL (6) ---
+    "trans-1-ethyl-2-methylcyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "Et (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Et (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both comfortably equatorial." } },
+    "cis-1-ethyl-2-methylcyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "Et (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Bulkier Ethyl forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Et (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Bulkier Ethyl takes equatorial." } },
+    "trans-1-ethyl-3-methylcyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "Et (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Ethyl forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Et (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Ethyl claims equatorial." } },
+    "cis-1-ethyl-3-methylcyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Et (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both safely equatorial." }, state2: { name: "(a,a)", c1_a: "Et (Up)", c1_e: "H (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Both forced axial." } },
+    "trans-1-ethyl-4-methylcyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(a,a)", c1_a: "Et (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Et (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-ethyl-4-methylcyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "Et (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Ethyl forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Et (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Ethyl equatorial." } },
+
+    // --- 18. HETERO: METHYL / ISOPROPYL (6) ---
+    "trans-1-isopropyl-2-methylcyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "i-Pr (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "i-Pr (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-isopropyl-2-methylcyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "i-Pr (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Isop is axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "i-Pr (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Isop claims equatorial." } },
+    "trans-1-isopropyl-3-methylcyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "i-Pr (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Isop forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "i-Pr (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Isop claims equatorial." } },
+    "cis-1-isopropyl-3-methylcyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "i-Pr (Down)", cx_a: "H (Up)", cx_e: "Me (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both safely equatorial." }, state2: { name: "(a,a)", c1_a: "i-Pr (Up)", c1_e: "H (Down)", cx_a: "Me (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Both forced axial." } },
+    "trans-1-isopropyl-4-methylcyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(a,a)", c1_a: "i-Pr (Up)", c1_e: "H (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "i-Pr (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-isopropyl-4-methylcyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "i-Pr (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Me (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Isop forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "i-Pr (Down)", cx_a: "Me (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Isop equatorial." } },
+
+    // --- 19. HETERO: T-BUTYL / CHLORINE (6) ---
+    "trans-1-tert-butyl-2-chlorocyclohexane": { isomer: "Trans-1,2 (Locked)", targetPos: 2, state1: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-tert-butyl-2-chlorocyclohexane": { isomer: "Cis-1,2 (Locked)", targetPos: 2, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl locked axial." } },
+    "trans-1-tert-butyl-3-chlorocyclohexane": { isomer: "Trans-1,3 (Locked)", targetPos: 3, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Cl (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "Cl (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl locked axial." } },
+    "cis-1-tert-butyl-3-chlorocyclohexane": { isomer: "Cis-1,3 (Locked)", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Up)", cx_e: "Cl (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "Cl (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Impossible." } },
+    "trans-1-tert-butyl-4-chlorocyclohexane": { isomer: "Trans-1,4 (Locked)", targetPos: 4, state1: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-tert-butyl-4-chlorocyclohexane": { isomer: "Cis-1,4 (Locked)", targetPos: 4, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl locked axial." } },
+
+    // --- 20. HETERO: T-BUTYL / HYDROXYL (6) ---
+    "trans-1-tert-butyl-2-cyclohexanol": { isomer: "Trans-1,2 (Locked)", targetPos: 2, state1: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-tert-butyl-2-cyclohexanol": { isomer: "Cis-1,2 (Locked)", targetPos: 2, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH locked axial." } },
+    "trans-1-tert-butyl-3-cyclohexanol": { isomer: "Trans-1,3 (Locked)", targetPos: 3, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "OH (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "OH (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH locked axial." } },
+    "cis-1-tert-butyl-3-cyclohexanol": { isomer: "Cis-1,3 (Locked)", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Up)", cx_e: "OH (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "OH (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Impossible." } },
+    "trans-1-tert-butyl-4-cyclohexanol": { isomer: "Trans-1,4 (Locked)", targetPos: 4, state1: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-tert-butyl-4-cyclohexanol": { isomer: "Cis-1,4 (Locked)", targetPos: 4, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH locked axial." } },
+
+    // --- 21. HETERO: T-BUTYL / FLUORINE (6) ---
+    "trans-1-tert-butyl-2-fluorocyclohexane": { isomer: "Trans-1,2 (Locked)", targetPos: 2, state1: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-tert-butyl-2-fluorocyclohexane": { isomer: "Cis-1,2 (Locked)", targetPos: 2, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "F locked axial." } },
+    "trans-1-tert-butyl-3-fluorocyclohexane": { isomer: "Trans-1,3 (Locked)", targetPos: 3, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "F locked axial." } },
+    "cis-1-tert-butyl-3-fluorocyclohexane": { isomer: "Cis-1,3 (Locked)", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Impossible." } },
+    "trans-1-tert-butyl-4-fluorocyclohexane": { isomer: "Trans-1,4 (Locked)", targetPos: 4, state1: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-tert-butyl-4-fluorocyclohexane": { isomer: "Cis-1,4 (Locked)", targetPos: 4, state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "F locked axial." } },
+
+    // --- 22. HETERO: CHLORINE / FLUORINE (6) ---
+    "trans-1-chloro-2-fluorocyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-chloro-2-fluorocyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Cl forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl claims equatorial." } },
+    "trans-1-chloro-3-fluorocyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Cl forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl claims equatorial." } },
+    "cis-1-chloro-3-fluorocyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-1-chloro-4-fluorocyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1-chloro-4-fluorocyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Cl forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl claims equatorial." } },
+
+    // --- 23. HETERO: CHLORINE / BROMINE (6) ---
+    "trans-1-bromo-2-chlorocyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-bromo-2-chlorocyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl has higher A-value, claims equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Cl forced axial." } },
+    "trans-1-bromo-3-chlorocyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Cl (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl claims equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Cl (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Cl forced axial." } },
+    "cis-1-bromo-3-chlorocyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Up)", cx_e: "Cl (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Cl (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-1-bromo-4-chlorocyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1-bromo-4-chlorocyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl claims equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Cl forced axial." } },
+
+    // --- 24. HETERO: CHLORINE / IODINE (6) ---
+    "trans-1-chloro-2-iodocyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-chloro-2-iodocyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Cl forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl claims equatorial." } },
+    "trans-1-chloro-3-iodocyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "I (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Cl forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "I (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl claims equatorial." } },
+    "cis-1-chloro-3-iodocyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Up)", cx_e: "I (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "I (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-1-chloro-4-iodocyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1-chloro-4-iodocyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Cl forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Cl claims equatorial." } },
+
+    // --- 25. HETERO: BROMINE / FLUORINE (6) ---
+    "trans-1-bromo-2-fluorocyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-bromo-2-fluorocyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Br forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Br claims equatorial." } },
+    "trans-1-bromo-3-fluorocyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Br forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Br claims equatorial." } },
+    "cis-1-bromo-3-fluorocyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-1-bromo-4-fluorocyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1-bromo-4-fluorocyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Br forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Br claims equatorial." } },
+
+    // --- 26. HETERO: IODINE / FLUORINE (6) ---
+    "trans-1-fluoro-2-iodocyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-fluoro-2-iodocyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "I claims equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "I forced axial." } },
+    "trans-1-fluoro-3-iodocyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "I (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "I claims equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "I (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "I forced axial." } },
+    "cis-1-fluoro-3-iodocyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Up)", cx_e: "I (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "I (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-1-fluoro-4-iodocyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-1-fluoro-4-iodocyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "I claims equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "I forced axial." } },
+
+    // --- 27. HETERO: HYDROXYL / CHLORINE (HALOHYDRINS) (6) ---
+    "trans-2-chlorocyclohexan-1-ol": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-2-chlorocyclohexan-1-ol": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "OH forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH claims equatorial." } },
+    "trans-3-chlorocyclohexan-1-ol": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Cl (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "OH forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "Cl (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH claims equatorial." } },
+    "cis-3-chlorocyclohexan-1-ol": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Up)", cx_e: "Cl (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "Cl (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-4-chlorocyclohexan-1-ol": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-4-chlorocyclohexan-1-ol": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "OH forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH claims equatorial." } },
+
+    // --- 28. HETERO: HYDROXYL / FLUORINE (6) ---
+    "trans-2-fluorocyclohexan-1-ol": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-2-fluorocyclohexan-1-ol": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "OH forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH claims equatorial." } },
+    "trans-3-fluorocyclohexan-1-ol": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "OH forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH claims equatorial." } },
+    "cis-3-fluorocyclohexan-1-ol": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-4-fluorocyclohexan-1-ol": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-4-fluorocyclohexan-1-ol": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "OH forced axial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH claims equatorial." } },
+
+    // --- 29. HETERO: HYDROXYL / METHOXY (6) ---
+    "trans-2-methoxycyclohexan-1-ol": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "OMe (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "OMe (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial, allows H-bonding." } },
+    "cis-2-methoxycyclohexan-1-ol": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OMe (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "OH forms H-bond." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "OMe (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Stable", desc: "Alternative H-bond state." } },
+    "trans-3-methoxycyclohexan-1-ol": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "OMe (Down)", stabilityClass: "stable", stabilityText: "Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "OMe (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Stable", desc: "Mirrored." } },
+    "cis-3-methoxycyclohexan-1-ol": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Up)", cx_e: "OMe (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "OMe (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "trans-4-methoxycyclohexan-1-ol": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "OMe (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." }, state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "OMe (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." } },
+    "cis-4-methoxycyclohexan-1-ol": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OMe (Up)", stabilityClass: "stable", stabilityText: "Stable", desc: "One a, one e." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "OMe (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Stable", desc: "Mirrored." } },
+
+    // --- 30. HETERO: PHENYL / METHYL (6) ---
+    "trans-1-methyl-2-phenylcyclohexane": { isomer: "Trans-1,2", targetPos: 2, state1: { name: "(a,a)", c1_a: "Me (Up)", c1_e: "H (Down)", cx_a: "Ph (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Me (Down)", cx_a: "H (Down)", cx_e: "Ph (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both comfortably equatorial." } },
+    "cis-1-methyl-2-phenylcyclohexane": { isomer: "Cis-1,2", targetPos: 2, state1: { name: "(a,e)", c1_a: "Me (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Ph (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Bulkier Ph takes equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Me (Down)", cx_a: "Ph (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Ph forced axial." } },
+    "trans-1-methyl-3-phenylcyclohexane": { isomer: "Trans-1,3", targetPos: 3, state1: { name: "(a,e)", c1_a: "Me (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Ph (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Ph claims equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Me (Down)", cx_a: "Ph (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Ph forced axial." } },
+    "cis-1-methyl-3-phenylcyclohexane": { isomer: "Cis-1,3", targetPos: 3, state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Me (Down)", cx_a: "H (Up)", cx_e: "Ph (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both safely equatorial." }, state2: { name: "(a,a)", c1_a: "Me (Up)", c1_e: "H (Down)", cx_a: "Ph (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Both forced axial." } },
+    "trans-1-methyl-4-phenylcyclohexane": { isomer: "Trans-1,4", targetPos: 4, state1: { name: "(a,a)", c1_a: "Me (Up)", c1_e: "H (Down)", cx_a: "Ph (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both axial." }, state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Me (Down)", cx_a: "H (Down)", cx_e: "Ph (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both equatorial." } },
+    "cis-1-methyl-4-phenylcyclohexane": { isomer: "Cis-1,4", targetPos: 4, state1: { name: "(a,e)", c1_a: "Me (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Ph (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Ph equatorial." }, state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Me (Down)", cx_a: "Ph (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Ph axial." } },
+
+    // --- 31. TRISUBSTITUTED ISOMERS (5) ---
+    "1,2,5-trimethylcyclohexane (cis,cis)": {
+        isomer: "Trisubstituted (All-Cis)", targetPos: 2, targetPos2: 5,
+        state1: { name: "(a,e,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Two axial groups, one equatorial." },
+        state2: { name: "(e,a,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Two equatorial groups, one axial." }
+    },
+    "1,2,5-trimethylcyclohexane (trans,trans)": {
+        isomer: "Trisubstituted (Trans,Trans)", targetPos: 2, targetPos2: 5,
+        state1: { name: "(a,a,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "All three methyl groups are axial." },
+        state2: { name: "(e,e,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "All three methyl groups are comfortably equatorial." }
+    },
+    "1,3,5-trimethylcyclohexane (cis,cis)": {
+        isomer: "Trisubstituted (All-Cis)", targetPos: 3, targetPos2: 5,
+        state1: { name: "(a,a,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Severe 1,3,5-triaxial interactions." },
+        state2: { name: "(e,e,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Perfectly stable all-equatorial conformation." }
+    },
+    "1,3,5-trimethylcyclohexane (trans,cis)": {
+        isomer: "Trisubstituted (Trans,Cis)", targetPos: 3, targetPos2: 5,
+        state1: { name: "(a,e,e)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "One axial group, two equatorial groups." },
+        state2: { name: "(e,a,a)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Two axial groups causing diaxial strain." }
+    },
+    "1,2,3-trimethylcyclohexane (cis,cis)": {
+        isomer: "Trisubstituted (All-Cis)", targetPos: 2, targetPos2: 3,
+        state1: { name: "(a,e,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Two axial groups, one equatorial." },
+        state2: { name: "(e,a,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy identical upon ring flip." }
+    },
+    // --- 32. GEMINAL (1,1-DISUBSTITUTED) BASES ---
+    // Note: In 1,1-substitution, one group MUST be axial and the other MUST be equatorial.
+    "1,1-dimethylcyclohexane": {
+        isomer: "1,1-Geminal", targetPos: 1,
+        state1: { name: "(a,e)", c1_a: "CH3 (Up)", c1_e: "CH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One methyl is axial, one is equatorial." },
+        state2: { name: "(e,a)", c1_a: "CH3 (Down)", c1_e: "CH3 (Up)", cx_a: "H", cx_e: "H", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy identical upon ring flip." }
+    },
+    "1,1-difluorocyclohexane": {
+        isomer: "1,1-Geminal", targetPos: 1,
+        state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "F (Down)", cx_a: "H", cx_e: "H", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One fluorine is axial, one equatorial." },
+        state2: { name: "(e,a)", c1_a: "F (Down)", c1_e: "F (Up)", cx_a: "H", cx_e: "H", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy identical upon ring flip." }
+    },
+    "1,1-dichlorocyclohexane": {
+        isomer: "1,1-Geminal", targetPos: 1,
+        state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "Cl (Down)", cx_a: "H", cx_e: "H", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One chlorine is axial, one equatorial." },
+        state2: { name: "(e,a)", c1_a: "Cl (Down)", c1_e: "Cl (Up)", cx_a: "H", cx_e: "H", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy identical upon ring flip." }
+    },
+
+    // --- 33. MIXED GEMINAL (FIGHTING FOR EQUATORIAL ON THE SAME CARBON) ---
+    "1-tert-butyl-1-methylcyclohexane": {
+        isomer: "1,1-Mixed Geminal (Locked)", targetPos: 1,
+        state1: { name: "t-Bu Equatorial", c1_a: "CH3 (Up)", c1_e: "t-Bu (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The massive t-Bu group locks into the equatorial position, forcing Methyl axial." },
+        state2: { name: "t-Bu Axial", c1_a: "t-Bu (Up)", c1_e: "CH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Forces t-Bu axial. Does not exist at room temp." }
+    },
+    "1-ethyl-1-methylcyclohexane": {
+        isomer: "1,1-Mixed Geminal", targetPos: 1,
+        state1: { name: "Ethyl Equatorial", c1_a: "CH3 (Up)", c1_e: "Ethyl (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The larger Ethyl group claims the equatorial plane." },
+        state2: { name: "Ethyl Axial", c1_a: "Ethyl (Up)", c1_e: "CH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Ethyl is forced axial, raising energy." }
+    },
+    "1-chloro-1-methylcyclohexane": {
+        isomer: "1,1-Mixed Geminal", targetPos: 1,
+        state1: { name: "Methyl Equatorial", c1_a: "Cl (Up)", c1_e: "CH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "CH3 (larger A-value) takes the equatorial spot, pushing Cl axial." },
+        state2: { name: "Methyl Axial", c1_a: "CH3 (Up)", c1_e: "Cl (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "CH3 is forced axial." }
+    },
+    "1-bromo-1-methylcyclohexane": {
+        isomer: "1,1-Mixed Geminal", targetPos: 1,
+        state1: { name: "Methyl Equatorial", c1_a: "Br (Up)", c1_e: "CH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "CH3 (larger A-value) takes the equatorial spot." },
+        state2: { name: "Methyl Axial", c1_a: "CH3 (Up)", c1_e: "Br (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "CH3 is forced axial." }
+    },
+    "1-fluoro-1-methylcyclohexane": {
+        isomer: "1,1-Mixed Geminal", targetPos: 1,
+        state1: { name: "Methyl Equatorial", c1_a: "F (Up)", c1_e: "CH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "CH3 strongly prefers equatorial over the small F atom." },
+        state2: { name: "Methyl Axial", c1_a: "CH3 (Up)", c1_e: "F (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "CH3 is forced axial." }
+    },
+
+    // --- 34. MISSING TRIMETHYL CONFIGURATIONS (1,1,2 / 1,2,3 / 1,2,4) ---
+    // Note: For 1,1,2-trimethyl, we use C1 for the geminal pair, and C2 for the single methyl.
+    "1,1,2-trimethylcyclohexane": {
+        isomer: "Trisubstituted (Geminal + Mono)", targetPos: 2,
+        state1: { name: "C2-Equatorial", c1_a: "CH3 (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The C2 methyl sits equatorially to minimize steric clash with the geminal C1 methyls." },
+        state2: { name: "C2-Axial", c1_a: "CH3 (Down)", c1_e: "CH3 (Up)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "The C2 methyl is axial, creating severe 1,3-diaxial interactions and gauche interactions with C1." }
+    },
+    "1,1,3-trimethylcyclohexane": {
+        isomer: "Trisubstituted (Geminal + Mono)", targetPos: 3,
+        state1: { name: "C3-Equatorial", c1_a: "CH3 (Up)", c1_e: "CH3 (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The C3 methyl is safely equatorial." },
+        state2: { name: "C3-Axial", c1_a: "CH3 (Down)", c1_e: "CH3 (Up)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "The C3 methyl is axial and directly clashes with the axial C1 methyl (1,3-diaxial interaction)." }
+    },
+    "1,1,4-trimethylcyclohexane": {
+        isomer: "Trisubstituted (Geminal + Mono)", targetPos: 4,
+        state1: { name: "C4-Equatorial", c1_a: "CH3 (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The C4 methyl is comfortably equatorial on the opposite side of the ring." },
+        state2: { name: "C4-Axial", c1_a: "CH3 (Down)", c1_e: "CH3 (Up)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "The C4 methyl is forced axial." }
     },
     
-    // --- SPECIFIC DIMETHYL ISOMERS ---
-    "trans-1,2-dimethylcyclohexane": {
-        isomer: "Trans-1,2 Isomer", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable (3.6 kcal/mol)", desc: "Suffers severe diaxial interactions." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable (0.9 kcal/mol)", desc: "Groups are equatorial." }
+    // Using targetPos=2 and targetPos2=3
+    "1,2,3-trimethylcyclohexane (trans,trans)": {
+        isomer: "Trisubstituted (Trans,Trans)", targetPos: 2, targetPos2: 3,
+        state1: { name: "(e,a,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Two equatorial, one axial. Minimizes adjacent strain." },
+        state2: { name: "(a,e,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Two axial, one equatorial." }
     },
-    "cis-1,2-dimethylcyclohexane": {
-        isomer: "Cis-1,2 Isomer", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "stable", stabilityText: "Stable (2.7 kcal/mol)", desc: "One a, one e. Standard energy." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Stable (2.7 kcal/mol)", desc: "Groups swapped, energy identical." }
-    },
-    "cis-1,3-dimethylcyclohexane": {
-        isomer: "Cis-1,3 Isomer", targetPos: 3,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable (0 kcal/mol)", desc: "Highly stable, e,e conformation." },
-        state2: { name: "(a,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable (5.4 kcal/mol)", desc: "Groups are forced axial." }
-    },
-    "trans-1,3-dimethylcyclohexane": {
-        isomer: "Trans-1,3 Isomer", targetPos: 3,
-        state1: { name: "(a,e)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e. Both forms identical." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy state identical." }
-    },
-    "trans-1,4-dimethylcyclohexane": {
-        isomer: "Trans-1,4 Isomer", targetPos: 4,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both groups can be equatorial." },
-        state2: { name: "(a,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Groups are forced axial." }
-    },
-    "cis-1,4-dimethylcyclohexane": {
-        isomer: "Cis-1,4 Isomer", targetPos: 4,
-        state1: { name: "(a,e)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e. Standard energy." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy state identical." }
+    "1,2,3-trimethylcyclohexane (cis,trans)": {
+        isomer: "Trisubstituted (Cis,Trans)", targetPos: 2, targetPos2: 3,
+        state1: { name: "(e,e,a)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", cy_a: "CH3 (Up)", cy_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Two equatorial, one axial." },
+        state2: { name: "(a,a,e)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", cy_a: "H (Up)", cy_e: "CH3 (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Two axial, one equatorial." }
     },
 
-    // --- MONO-SUBSTITUTED HALOGENS ---
-    "fluorocyclohexane": {
-        isomer: "Mono-substituted Halogen", targetPos: 1,
-        state1: { name: "Axial", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Fluorine is small, causing relatively minor 1,3-diaxial strain compared to other halogens." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Prefers the equatorial position slightly to minimize strain." }
-    },
-    "chlorocyclohexane": {
-        isomer: "Mono-substituted Halogen", targetPos: 1,
-        state1: { name: "Axial", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "The Chlorine atom is axial, causing 1,3-diaxial steric strain." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Chlorine is completely clear of 1,3-diaxial interactions." }
-    },
-    "bromocyclohexane": {
-        isomer: "Mono-substituted Halogen", targetPos: 1,
-        state1: { name: "Axial", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Forcing it axial creates steric repulsion, though long bonds mitigate it slightly." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Bromine is in the spacious equatorial position." }
-    },
-    "iodocyclohexane": {
-        isomer: "Mono-substituted Halogen", targetPos: 1,
-        state1: { name: "Axial", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Iodine is massive, but the exceptionally long C-I bond reduces the severity of the 1,3-diaxial clash." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Still strongly prefers the equatorial position." }
-    },
-
-    // --- MONO-SUBSTITUTED ALKYL & ARYL GROUPS ---
-    "methylcyclohexane": {
-        isomer: "Mono-substituted Alkyl", targetPos: 1,
-        state1: { name: "Axial", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable (~1.7 kcal/mol)", desc: "Experiences classic 1,3-diaxial interactions." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Sits comfortably in the equatorial plane." }
-    },
-    "ethylcyclohexane": {
-        isomer: "Mono-substituted Alkyl", targetPos: 1,
-        state1: { name: "Axial", c1_a: "Ethyl (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "The ethyl group rotates to minimize some strain, but being axial still creates severe clash." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Ethyl (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Prefers the equatorial position." }
-    },
-    "propylcyclohexane": {
-        isomer: "Mono-substituted Alkyl", targetPos: 1,
-        state1: { name: "Axial", c1_a: "Propyl (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Similar A-value to ethyl, rotates away from ring but clashes." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Propyl (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial placement relieves strain." }
-    },
-    "isopropylcyclohexane": {
-        isomer: "Mono-substituted Alkyl", targetPos: 1,
-        state1: { name: "Axial", c1_a: "i-Pr (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "The branched isopropyl group causes massive steric crowding when forced axial." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "i-Pr (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Strongly favors the equatorial position." }
-    },
-    "isobutylcyclohexane": {
-        isomer: "Mono-substituted Alkyl", targetPos: 1,
-        state1: { name: "Axial", c1_a: "i-Bu (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Branching is one carbon further away, strain is high but less than isopropyl." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "i-Bu (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial is strictly favored." }
-    },
-    "sec-butylcyclohexane": {
-        isomer: "Mono-substituted Alkyl", targetPos: 1,
-        state1: { name: "Axial", c1_a: "sec-Bu (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Branching at the alpha carbon creates intense 1,3-diaxial interactions." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "sec-Bu (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Bulky group sits safely on the equator." }
-    },
-    "tert-butylcyclohexane": {
-        isomer: "Mono-substituted (Locking Group)", targetPos: 1,
-        state1: { name: "Axial", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Massive tert-butyl group creates extreme 1,3-diaxial interactions. Effectively non-existent at room temp." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Demands the equatorial position, 'locking' the ring." }
-    },
-    "neopentylcyclohexane": {
-        isomer: "Mono-substituted Alkyl", targetPos: 1,
-        state1: { name: "Axial", c1_a: "Neopentyl (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Huge steric bulk creates massive interactions." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Neopentyl (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial position provides relief." }
-    },
-    "phenylcyclohexane": {
-        isomer: "Mono-substituted Aryl", targetPos: 1,
-        state1: { name: "Axial", c1_a: "Ph (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Flat but large aromatic ring clashes severely when axial." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "Ph (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Phenyl ring sits equatorially, rotating to minimize strain." }
-    },
-    "trifluoromethylcyclohexane": {
-        isomer: "Mono-substituted Alkyl-Halide", targetPos: 1,
-        state1: { name: "Axial", c1_a: "CF3 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "The CF3 group acts like a bulky alkyl group, creating intense repulsion." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "CF3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial placement is strongly favored." }
-    },
-
-    // --- MONO-SUBSTITUTED HETEROATOMS ---
-    "cyclohexanol": {
-        isomer: "Cyclic Alcohol", targetPos: 1,
-        state1: { name: "Axial", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Hydroxyl group is axial. Less severe than halogens due to small size." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Occupies the stable equatorial position." }
-    },
-    "cyclohexanamine": {
-        isomer: "Cyclic Amine", targetPos: 1,
-        state1: { name: "Axial", c1_a: "NH2 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "The amino group is in the higher-energy axial position." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "NH2 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Minimizes steric strain by sitting equatorially." }
-    },
-    "cyanocyclohexane": {
-        isomer: "Mono-substituted Nitrile", targetPos: 1,
-        state1: { name: "Axial", c1_a: "CN (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "stable", stabilityText: "Slightly Less Stable", desc: "The cyano group is strictly linear (sp hybridized), causing surprisingly little 1,3-diaxial strain!" },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "CN (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Preferred state, but energy difference is unusually small." }
-    },
-    "nitrocyclohexane": {
-        isomer: "Mono-substituted Nitro", targetPos: 1,
-        state1: { name: "Axial", c1_a: "NO2 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Bulky NO2 group clashes with axial hydrogens." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "NO2 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Favors the equatorial position." }
-    },
-    "methoxycyclohexane": {
-        isomer: "Cyclic Ether", targetPos: 1,
-        state1: { name: "Axial", c1_a: "OCH3 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "The methoxy oxygen is axial, causing mild steric strain." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "OCH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The methoxy group is safely equatorial." }
-    },
-    "ethoxycyclohexane": {
-        isomer: "Cyclic Ether", targetPos: 1,
-        state1: { name: "Axial", c1_a: "OCH2CH3 (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Longer ether chain creates more clash when axial." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "OCH2CH3 (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Safely equatorial." }
-    },
-    "isopropoxycyclohexane": {
-        isomer: "Cyclic Ether", targetPos: 1,
-        state1: { name: "Axial", c1_a: "O-iPr (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Branched ether group clashes severely when axial." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "O-iPr (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial position favored heavily." }
-    },
-    "phenoxycyclohexane": {
-        isomer: "Cyclic Ether (Aryl)", targetPos: 1,
-        state1: { name: "Axial", c1_a: "OPh (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Large phenoxy group creates extreme steric hindrance." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "OPh (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Favors equatorial plane." }
-    },
-    "cyclohexanethiol": {
-        isomer: "Cyclic Thiol", targetPos: 1,
-        state1: { name: "Axial", c1_a: "SH (Up)", c1_e: "H (Down)", cx_a: "H", cx_e: "H", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Larger sulfur atom causes 1,3-diaxial strain when placed axial." },
-        state2: { name: "Equatorial", c1_a: "H (Up)", c1_e: "SH (Down)", cx_a: "H", cx_e: "H", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Favors the equatorial position." }
-    },
-
-    // --- DIFLUOROCYCLOHEXANES ---
-    "trans-1,2-difluorocyclohexane": {
-        isomer: "Trans-1,2 Isomer", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "1,3-diaxial strain from both fluorines." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both Fluorines are equatorial." }
-    },
-    "cis-1,2-difluorocyclohexane": {
-        isomer: "Cis-1,2 Isomer", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e. Standard energy." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Flip alternates halogens." }
-    },
-    "trans-1,3-difluorocyclohexane": {
-        isomer: "Trans-1,3 Isomer", targetPos: 3,
-        state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e. Both forms identical." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy state identical." }
-    },
-    "cis-1,3-difluorocyclohexane": {
-        isomer: "Cis-1,3 Isomer", targetPos: 3,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Up)", cx_e: "F (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Highly stable, e,e conformation." },
-        state2: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "F (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Groups are forced axial." }
-    },
-    "trans-1,4-difluorocyclohexane": {
-        isomer: "Trans-1,4 Isomer", targetPos: 4,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both groups can be equatorial." },
-        state2: { name: "(a,a)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Groups are forced axial." }
-    },
-    "cis-1,4-difluorocyclohexane": {
-        isomer: "Cis-1,4 Isomer", targetPos: 4,
-        state1: { name: "(a,e)", c1_a: "F (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One a, one e." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "F (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy state identical." }
-    },
-
-    // --- DICHLOROCYCLOHEXANES ---
-    "trans-1,2-dichlorocyclohexane": {
-        isomer: "Trans-1,2 Isomer", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Severe 1,3-diaxial interactions from both bulky Chlorines." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both Chlorines are equatorial, sharing a highly polar gauche interaction." }
-    },
-    "cis-1,2-dichlorocyclohexane": {
-        isomer: "Cis-1,2 Isomer", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One Chlorine is axial, one is equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy states are identical upon ring flip." }
-    },
-    "trans-1,3-dichlorocyclohexane": {
-        isomer: "Trans-1,3 Isomer", targetPos: 3,
-        state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Cl (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One Cl is axial, one is equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "Cl (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy states are perfectly mirrored." }
-    },
-    "cis-1,3-dichlorocyclohexane": {
-        isomer: "Cis-1,3 Isomer", targetPos: 3,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Up)", cx_e: "Cl (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both Chlorines occupy the equatorial plane simultaneously." },
-        state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "Cl (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Creates severe, direct 1,3-diaxial repulsion between the two halogens." }
-    },
-    "trans-1,4-dichlorocyclohexane": {
-        isomer: "Trans-1,4 Isomer", targetPos: 4,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Opposite sides allow both bulky Halogens to be equatorial." },
-        state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both Chlorines are forced into high-energy axial positions." }
-    },
-    "cis-1,4-dichlorocyclohexane": {
-        isomer: "Cis-1,4 Isomer", targetPos: 4,
-        state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One Chlorine must be axial and one must be equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "The flip alternates which Halogen is axial." }
-    },
-
-    // --- DIBROMOCYCLOHEXANES ---
-    "trans-1,2-dibromocyclohexane": {
-        isomer: "Trans-1,2 Isomer", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Br (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Massive diaxial interactions." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "Br (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Bromines sit safely on the equator." }
-    },
-    "cis-1,2-dibromocyclohexane": {
-        isomer: "Cis-1,2 Isomer", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Br (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One Br is axial, one is equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Br (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy states are identical." }
-    },
-    "trans-1,3-dibromocyclohexane": {
-        isomer: "Trans-1,3 Isomer", targetPos: 3,
-        state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "Br (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One Br is axial, one is equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Br (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Perfectly mirrored." }
-    },
-    "cis-1,3-dibromocyclohexane": {
-        isomer: "Cis-1,3 Isomer", targetPos: 3,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Up)", cx_e: "Br (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both massive Bromines are equatorial." },
-        state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Br (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Incredibly high strain from direct 1,3 interactions between massive Br atoms." }
-    },
-    "trans-1,4-dibromocyclohexane": {
-        isomer: "Trans-1,4 Isomer", targetPos: 4,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "Br (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Bromines safely placed on opposite ends, equatorial." },
-        state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Br (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced into high-energy axial states." }
-    },
-    "cis-1,4-dibromocyclohexane": {
-        isomer: "Cis-1,4 Isomer", targetPos: 4,
-        state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Br (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One axial, one equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Br (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy states flip perfectly." }
-    },
-
-    // --- DIIODOCYCLOHEXANES ---
-    "trans-1,2-diiodocyclohexane": {
-        isomer: "Trans-1,2 Isomer", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Large iodines forced axial." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial placement relieves strain." }
-    },
-    "cis-1,2-diiodocyclohexane": {
-        isomer: "Cis-1,2 Isomer", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One axial, one equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy states flip perfectly." }
-    },
-    "trans-1,3-diiodocyclohexane": {
-        isomer: "Trans-1,3 Isomer", targetPos: 3,
-        state1: { name: "(a,e)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "I (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One axial, one equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "I (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Perfectly mirrored." }
-    },
-    "cis-1,3-diiodocyclohexane": {
-        isomer: "Cis-1,3 Isomer", targetPos: 3,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H (Up)", cx_e: "I (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both massive Iodines are equatorial." },
-        state2: { name: "(a,a)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "I (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Incredibly high strain from direct 1,3 interactions." }
-    },
-    "trans-1,4-diiodocyclohexane": {
-        isomer: "Trans-1,4 Isomer", targetPos: 4,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Iodines safely placed on opposite ends, equatorial." },
-        state2: { name: "(a,a)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Forced into high-energy axial states." }
-    },
-    "cis-1,4-diiodocyclohexane": {
-        isomer: "Cis-1,4 Isomer", targetPos: 4,
-        state1: { name: "(a,e)", c1_a: "I (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "I (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One axial, one equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "I (Down)", cx_a: "I (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy states flip perfectly." }
-    },
-
-    // --- DIOLS, DIETHERS, DIAMINES ---
-    "trans-1,2-cyclohexanediol": {
-        isomer: "Trans-1,2 Diol", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Suffers from 1,3-diaxial interactions." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both hydroxyl groups are equatorial, allowing for stabilizing intramolecular hydrogen bonding." }
-    },
-    "cis-1,2-cyclohexanediol": {
-        isomer: "Cis-1,2 Diol", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One OH is axial, one is equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy states mirror upon ring flip." }
-    },
-    "trans-1,3-cyclohexanediol": {
-        isomer: "Trans-1,3 Diol", targetPos: 3,
-        state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "OH (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One OH is axial, one is equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "OH (Up)", cx_e: "H (Down)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Energy states mirror." }
-    },
-    "cis-1,3-cyclohexanediol": {
-        isomer: "Cis-1,3 Diol", targetPos: 3,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Up)", cx_e: "OH (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both OH groups are equatorial. High stability." },
-        state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "OH (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "1,3-diaxial OH groups can H-bond, but the steric clash still makes this less stable than (e,e)." }
-    },
-    "trans-1,4-cyclohexanediol": {
-        isomer: "Trans-1,4 Diol", targetPos: 4,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both groups equatorial." },
-        state2: { name: "(a,a)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both groups axial." }
-    },
-    "cis-1,4-cyclohexanediol": {
-        isomer: "Cis-1,4 Diol", targetPos: 4,
-        state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OH (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "One axial, one equatorial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: "OH (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored." }
-    },
-    "trans-1,2-dimethoxycyclohexane": {
-        isomer: "Trans-1,2 Diether", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "OCH3 (Up)", c1_e: "H (Down)", cx_a: "OCH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Steric clash." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "OCH3 (Down)", cx_a: "H (Down)", cx_e: "OCH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial placement." }
-    },
-    "cis-1,2-dimethoxycyclohexane": {
-        isomer: "Cis-1,2 Diether", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "OCH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "OCH3 (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored energy states." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OCH3 (Down)", cx_a: "OCH3 (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored energy states." }
-    },
-    "trans-1,2-cyclohexanediamine": {
-        isomer: "Trans-1,2 Diamine", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "NH2 (Up)", c1_e: "H (Down)", cx_a: "NH2 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Steric clash." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "NH2 (Down)", cx_a: "H (Down)", cx_e: "NH2 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Equatorial placement." }
-    },
-    "cis-1,2-cyclohexanediamine": {
-        isomer: "Cis-1,2 Diamine", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "NH2 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "NH2 (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored energy states." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "NH2 (Down)", cx_a: "NH2 (Down)", cx_e: "H (Up)", stabilityClass: "stable", stabilityText: "Equally Stable", desc: "Mirrored energy states." }
-    },
-
-    // --- MIXED GROUPS: ALKYL VS ALKYL (FIGHTING FOR EQUATORIAL) ---
-    "trans-1-ethyl-2-methylcyclohexane": {
-        isomer: "Trans-1,2 Mixed", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "Ethyl (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Ethyl (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both are comfortably equatorial." }
-    },
-    "cis-1-ethyl-2-methylcyclohexane": {
-        isomer: "Cis-1,2 Mixed", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "Ethyl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "The bulkier Ethyl group is forced axial, raising the energy." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Ethyl (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The bulkier Ethyl group takes the equatorial spot, forcing Methyl axial." }
-    },
-    "trans-1-isopropyl-3-methylcyclohexane": {
-        isomer: "Trans-1,3 Mixed", targetPos: 3,
-        state1: { name: "(a,e)", c1_a: "i-Pr (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "The larger Isopropyl group is forced axial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "i-Pr (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The bulky Isopropyl group claims the equatorial position." }
-    },
-    "cis-1-isopropyl-3-methylcyclohexane": {
-        isomer: "Cis-1,3 Mixed", targetPos: 3,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "i-Pr (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both bulky groups are safely equatorial." },
-        state2: { name: "(a,a)", c1_a: "i-Pr (Up)", c1_e: "H (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Both forced axial." }
-    },
-    "trans-1-tert-butyl-2-methylcyclohexane": {
-        isomer: "Trans-1,2 Mixed (Locked)", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Forced axial tert-butyl." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable (Locked)", desc: "Locked in the (e,e) state." }
-    },
-    "cis-1-tert-butyl-2-methylcyclohexane": {
-        isomer: "Cis-1,2 Mixed (Locked)", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu is axial. Non-existent at room temp." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable (Locked)", desc: "t-Bu absolutely dictates equatorial placement, locking Methyl axial." }
-    },
-    "trans-1-tert-butyl-3-methylcyclohexane": {
-        isomer: "Trans-1,3 Mixed (Locked)", targetPos: 3,
-        state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "t-Bu is axial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable (Locked)", desc: "t-Bu claims equatorial, locking Methyl axial." }
-    },
-    "cis-1-tert-butyl-3-methylcyclohexane": {
-        isomer: "Cis-1,3 Mixed (Locked)", targetPos: 3,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable (Locked)", desc: "Both groups securely equatorial." },
-        state2: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Both axial. Impossible at room temp." }
-    },
-    "cis-1-tert-butyl-4-methylcyclohexane": {
-        isomer: "Cis-1,4 Mixed (Locked)", targetPos: 4,
-        state1: { name: "(a,e)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Forces the massive tert-butyl group axial. This state practically does not exist." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable (Locked)", desc: "The tert-butyl group absolutely demands the equatorial position, locking the smaller methyl group into the axial position permanently." }
-    },
-    "trans-1-tert-butyl-4-methylcyclohexane": {
-        isomer: "Trans-1,4 Mixed (Locked)", targetPos: 4,
-        state1: { name: "(a,a)", c1_a: "t-Bu (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Both groups are axial." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "t-Bu (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable (Locked)", desc: "The massive tert-butyl group locks both substituents into the equatorial plane." }
-    },
-
-    // --- MIXED GROUPS: HALOGEN VS ALKYL ---
-    "trans-1-chloro-2-methylcyclohexane": {
-        isomer: "Trans-1,2 Mixed", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both are comfortably equatorial." }
-    },
-    "cis-1-chloro-2-methylcyclohexane": {
-        isomer: "Cis-1,2 Mixed", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "CH3 (higher A-value) goes equatorial, leaving smaller Cl axial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "The bulkier CH3 group is forced axial." }
-    },
-    "trans-1-bromo-3-methylcyclohexane": {
-        isomer: "Trans-1,3 Mixed", targetPos: 3,
-        state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "CH3 (larger A-value than Br) sits equatorial, pushing Br axial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "CH3 is forced axial." }
-    },
-    "cis-1-bromo-3-methylcyclohexane": {
-        isomer: "Cis-1,3 Mixed", targetPos: 3,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Up)", cx_e: "CH3 (Down)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both can be equatorial." },
-        state2: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "CH3 (Up)", cx_e: "H (Down)", stabilityClass: "unstable", stabilityText: "Highly Unstable", desc: "Both forced axial." }
-    },
-    "trans-1-chloro-4-methylcyclohexane": {
-        isomer: "Trans-1,4 Mixed", targetPos: 4,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Opposite sides allow both groups to be comfortably equatorial." },
-        state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both groups are forced axial." }
-    },
-    "cis-1-chloro-4-methylcyclohexane": {
-        isomer: "Cis-1,4 Mixed", targetPos: 4,
-        state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", stabilityClass: "stable", stabilityText: "Most Stable", desc: "The larger CH3 group (A-value ~1.7) takes the equatorial spot, forcing the smaller Cl (A-value ~0.5) to go axial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "The bulkier CH3 group is forced axial, raising the energy state." }
-    },
-
-    // --- MIXED HALOGENS ---
-    "trans-1-bromo-2-chlorocyclohexane": {
-        isomer: "Trans-1,2 Mixed Halogen", targetPos: 2,
-        state1: { name: "(a,a)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both halogens forced axial." },
-        state2: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both halogens securely equatorial." }
-    },
-    "cis-1-bromo-2-chlorocyclohexane": {
-        isomer: "Cis-1,2 Mixed Halogen", targetPos: 2,
-        state1: { name: "(a,e)", c1_a: "Br (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "Cl (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Chlorine has a slightly larger A-value than Bromine, so Cl prefers equatorial, pushing Br axial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Br (Down)", cx_a: "Cl (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Chlorine is forced axial." }
-    },
-    "trans-1-chloro-4-fluorocyclohexane": {
-        isomer: "Trans-1,4 Mixed Halogen", targetPos: 4,
-        state1: { name: "(e,e)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Both comfortably equatorial." },
-        state2: { name: "(a,a)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Least Stable", desc: "Both forced axial." }
-    },
-    "cis-1-chloro-4-fluorocyclohexane": {
-        isomer: "Cis-1,4 Mixed Halogen", targetPos: 4,
-        state1: { name: "(a,e)", c1_a: "Cl (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "F (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Chlorine (larger) is forced axial." },
-        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "Cl (Down)", cx_a: "F (Down)", cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Chlorine claims equatorial, F goes axial." }
+    // Using targetPos=2 and targetPos2=4
+    "1,2,4-trimethylcyclohexane (cis,cis)": {
+        isomer: "Trisubstituted (All-Cis)", targetPos: 2, targetPos2: 4,
+        state1: { name: "(e,a,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", cy_a: "H (Down)", cy_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Two equatorial groups, one axial." },
+        state2: { name: "(a,e,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", cy_a: "CH3 (Down)", cy_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Less Stable", desc: "Two axial groups, one equatorial." }
+    },
+    "1,2,4-trimethylcyclohexane (trans,trans)": {
+        isomer: "Trisubstituted (Trans,Trans)", targetPos: 2, targetPos2: 4,
+        state1: { name: "(e,e,e)", c1_a: "H (Up)", c1_e: "CH3 (Down)", cx_a: "H (Down)", cx_e: "CH3 (Up)", cy_a: "H (Down)", cy_e: "CH3 (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "Perfectly stable all-equatorial conformation." },
+        state2: { name: "(a,a,a)", c1_a: "CH3 (Up)", c1_e: "H (Down)", cx_a: "CH3 (Down)", cx_e: "H (Up)", cy_a: "CH3 (Down)", cy_e: "H (Up)", stabilityClass: "unstable", stabilityText: "Extremely Unstable", desc: "Severe 1,3-diaxial interactions." }
     }
 };
 
