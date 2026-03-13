@@ -185,16 +185,25 @@ async function searchCompound() {
     document.getElementById('details-panel').classList.remove('hidden');
     document.getElementById('loading').style.display = 'block';
 
+// API MAPPING & ENCODING LOGIC
     // ==========================================
-    // API MAPPING & ENCODING LOGIC
-    // ==========================================
-    // 1. Check if the molecule needs a specific API name; otherwise, use what the user typed
-    let fetchName = apiSafeMapper[inputName] ? apiSafeMapper[inputName] : inputName;
+    // 1. SMART API NAME CLEANER (Fixes strict IUPAC rules for the 3D Database)
+    let cleanName = inputName.replace(/\s*\(.*?\)/g, '').trim(); // Strips text like "(Locked)"
     
-    // 2. Encode the string so commas and numbers don't break the URL
-    let safeFetchName = encodeURIComponent(fetchName);
-    // ==========================================
+    // Fix A: Remove redundant "1-" from mono-substituted rings (e.g., "1-methylcyclohexane" -> "methylcyclohexane")
+    cleanName = cleanName.replace(/^1-([a-z]+cyclohexane)$/i, '$1');
+    cleanName = cleanName.replace(/^1-(cyclohexan[a-z]+)$/i, '$1'); // Fixes 1-cyclohexanol
+    
+    // Fix B: Convert shorthand straight-chain alcohols (e.g., "heptanol" -> "heptan-1-ol")
+    if (/^[a-z]+anol$/.test(cleanName) && !["methanol", "ethanol"].includes(cleanName)) {
+        cleanName = cleanName.replace(/anol$/, 'an-1-ol');
+    }
 
+    // 2. Check if the cleaned molecule needs a specific API name from your mapper
+    let fetchName = (typeof apiSafeMapper !== 'undefined' && apiSafeMapper[cleanName]) ? apiSafeMapper[cleanName] : cleanName;
+    
+    // 3. Encode the string so commas and numbers don't break the URL
+    let safeFetchName = encodeURIComponent(fetchName);
     try {
         // Use safeFetchName for the API calls
         const sdfResponse = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${safeFetchName}/SDF?record_type=3d`);
@@ -234,7 +243,13 @@ async function searchCompound() {
         }
 
         document.getElementById('details-panel').classList.remove('hidden');
-
+        if (window.innerWidth <= 850) {
+            const viewerSection = document.querySelector('.viewer-container') || document.getElementById('viewer-3d');
+            if (viewerSection) {
+                // Smoothly scrolls down to put the 3D model at the top of the phone screen
+                viewerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
         // Dynamic Tools Logic
         const isCyclic = inputName.includes("cyclohexane") || inputName.includes("cyclohexanol") || inputName.includes("cyclohexanamine");
         const has2D = ["dopamine", "ibuprofen", "amphetamine", "butane", "ethane", "propane", "1,2-dichloroethane"].includes(inputName) || inputName.includes("ethane");
@@ -251,7 +266,8 @@ async function searchCompound() {
             toolsSection.style.display = 'none';
         }
 
-    } catch (error) {
+    }
+    catch (error) {
         alert(error.message);
         if (!viewer.getModel()) {
             document.getElementById('welcome-screen').style.display = 'flex';

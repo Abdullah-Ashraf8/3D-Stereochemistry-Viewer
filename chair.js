@@ -498,17 +498,61 @@ const cyclicData = {
         }
     }
 };
+// --- SMART ALIAS GENERATOR ---
+// Automatically maps "1-" prefixes so users can search either 
+// "methylcyclohexane" OR "1-methylcyclohexane" and get the same result!
+const monoSubstituents = [
+    "fluoro", "chloro", "bromo", "iodo", "methyl", "ethyl", "propyl", 
+    "isopropyl", "isobutyl", "sec-butyl", "tert-butyl", "neopentyl", 
+    "phenyl", "trifluoromethyl", "cyano", "nitro", "methoxy", "ethoxy", 
+    "isopropoxy", "phenoxy", "vinyl"
+];
+
+monoSubstituents.forEach(sub => {
+    let baseName = sub + "cyclohexane";
+    let aliasName = "1-" + baseName;
+    if (cyclicData[baseName]) {
+        cyclicData[aliasName] = cyclicData[baseName];
+    }
+});
+
+// Explicitly map standard suffix alcohols/amines
+cyclicData["1-cyclohexanol"] = cyclicData["cyclohexanol"];
+cyclicData["1-cyclohexanamine"] = cyclicData["cyclohexanamine"];
+// --- PROCEDURAL GENERATION ENGINE FOR 1500+ CYCLIC ALCOHOLS (CHAIR FLIP) ---
+function getDynamicChair(name) {
+    if (!name.includes('ol') && !name.includes('hydroxy')) return null;
+
+    // Error Case: Only cyclohexane rings can form a valid chair!
+    if (!name.includes('cyclohexan')) return null;
+
+    // Extract the substituent name (e.g., "ethyl" from "3-ethylcyclohexanol")
+    let substituent = name.replace('cyclohexanol', '').replace('cyclohexan-1-ol', '').replace(/[0-9,\-]/g, '').trim();
+    if (substituent === "" || substituent === "cis" || substituent === "trans") substituent = "R-Group";
+    else substituent = substituent.charAt(0).toUpperCase() + substituent.slice(1);
+
+    // Dynamically generate the chair states
+    return {
+        isomer: `Substituted Cyclohexanol`,
+        targetPos: 2,
+        state1: { name: "(a,e)", c1_a: "OH (Up)", c1_e: "H (Down)", cx_a: "H (Down)", cx_e: `${substituent} (Up)`, stabilityClass: "unstable", stabilityText: "Less Stable", desc: "The Hydroxyl group is in the higher-energy axial position." },
+        state2: { name: "(e,a)", c1_a: "H (Up)", c1_e: "OH (Down)", cx_a: `${substituent} (Down)`, cx_e: "H (Up)", stabilityClass: "most-stable", stabilityText: "Most Stable", desc: "The Hydroxyl group minimizes steric strain by sitting equatorially." }
+    };
+}
 
 function initializeChair() {
     const searched = localStorage.getItem('searchedMolecule');
     
-    // STRICT ERROR HANDLING
-    if (searched && cyclicData[searched]) {
+    // Check static DB first, then try the dynamic algorithm
+    let data = cyclicData[searched] || (typeof getDynamicChair === 'function' ? getDynamicChair(searched) : null);
+
+    if (searched && data) {
+        if (!cyclicData[searched]) cyclicData[searched] = data; // Temporarily inject it so the UI works
         activeCyclic = searched;
     } else {
-        alert(`Error: The molecule "${searched || 'Unknown'}" is not mapped for chair flip analysis. Please go back and search for a valid cyclic compound (e.g., cis-1,2-dimethylcyclohexane).`);
-        window.location.href = "index.html";
-        return; // Stop execution
+        alert(`Error: The molecule "${searched || 'Unknown'}" is not mapped for chair flip analysis.`);
+        window.location.href = "index.html?loadlast=true";
+        return;
     }
 
     document.getElementById('page-title').textContent = `Chair Flip: ${activeCyclic}`;

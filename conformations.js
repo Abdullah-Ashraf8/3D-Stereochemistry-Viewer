@@ -6,18 +6,20 @@ let activeMolecule = "butane"; // Default fallback
 function initializeMolecule() {
     const searched = localStorage.getItem('searchedMolecule');
     
-    if (searched && moleculeData[searched]) {
-        activeMolecule = searched;
-        document.getElementById('page-title').textContent = `2D Rotation: ${searched.charAt(0).toUpperCase() + searched.slice(1)}`;
-        document.getElementById('page-desc').textContent = `Simulate rotation around the ${moleculeData[activeMolecule].bond} bond.`;
+    // Check static DB first, then try the dynamic algorithm
+    let data = moleculeData[searched] || (typeof getDynamicChair === 'function' ? getDynamicChair(searched) : null);
+
+    if (searched && data) {
+        if (!moleculeData[searched]) moleculeData[searched] = data; // Temporarily inject it so the UI works
+        activeCyclic = searched;
     } else {
-        alert(`Detailed 2D rotation analysis is not supported for "${searched || 'this compound'}". Defaulting to Butane showcase.`);
-        activeMolecule = "butane";
+        alert(`Detailed 2D rotation analysis is not supported for "${searched || 'this compound'}".`);
+        window.location.href = "index.html?loadlast=true";
+        return;
     }
 
     const groups = moleculeData[activeMolecule].groups;
     
-    // Safely apply text to the SVG using textContent
     document.getElementById('f-top-text').textContent = groups.f_top;
     document.getElementById('f-left-text').textContent = groups.f_left;
     document.getElementById('f-right-text').textContent = groups.f_right;

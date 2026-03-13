@@ -6332,3 +6332,37 @@ const moleculeData = {
         }
     }
 };
+// --- PROCEDURAL GENERATION ENGINE FOR 1500+ ALCOHOLS (2D SAWHORSE) ---
+function getDynamic2D(name) {
+    // 1. Identify if it is an alcohol
+    if (!name.includes('ol') && !name.includes('hydroxy')) return null;
+
+    // 2. Error Cases: Alcohols that DO NOT have a rotatable sp3-sp3 backbone
+    if (name === 'methanol' || name === 'phenol' || name.includes('benzene')) return null;
+
+    // 3. Extract the carbon chain prefix to build the R-Group dynamically
+    let alkyl = "R-Group (Alkyl Chain)";
+    if (name.includes('ethan')) alkyl = "H";
+    else if (name.includes('propan')) alkyl = "CH3";
+    else if (name.includes('butan')) alkyl = "CH2CH3";
+    else if (name.includes('pentan')) alkyl = "Propyl";
+    else if (name.includes('hexan')) alkyl = "Butyl";
+    else if (name.includes('heptan')) alkyl = "Pentyl";
+    else if (name.includes('octan')) alkyl = "Hexyl";
+    else if (name.includes('nonan')) alkyl = "Heptyl";
+    else if (name.includes('decan')) alkyl = "Octyl";
+
+    // 4. Dynamically generate the 6 conformational states!
+    return {
+        bond: "C1-C2 (Aliphatic Chain)",
+        groups: { f_top: "OH", f_right: "H", f_left: "H", b_top: alkyl, b_right: "H", b_left: "H" },
+        states: {
+            0: { name: "Staggered, Anti", cssClass: "most-stable", type: "Most Stable", desc: `The OH and ${alkyl} groups are 180° apart. This minimizes steric strain.` },
+            60: { name: "Eclipsed", cssClass: "unstable", type: "High Energy", desc: "The OH group eclipses a Hydrogen atom. High torsional strain." },
+            120: { name: "Staggered, Gauche", cssClass: "stable", type: "Stable (Local Minimum)", desc: `The OH and ${alkyl} groups are 60° apart. Stable, but possesses gauche interaction strain.` },
+            180: { name: "Fully Eclipsed", cssClass: "unstable", type: "Least Stable", desc: `The OH and ${alkyl} groups directly eclipse each other. Maximum steric repulsion!` },
+            240: { name: "Staggered, Gauche", cssClass: "stable", type: "Stable (Local Minimum)", desc: `The OH and ${alkyl} groups are 60° apart.` },
+            300: { name: "Eclipsed", cssClass: "unstable", type: "High Energy", desc: "Torsional strain increases." }
+        }
+    };
+}
