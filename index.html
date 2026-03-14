@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Stereochemistry Viewer</title>
+    <title>Alcohol Stereochemistry Viewer</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.1/3Dmol-min.js"></script>
 </head>
@@ -12,45 +12,48 @@
 <body>
     <div class="container">
         <aside class="sidebar">
-        <h1>Stereochemistry Explorer</h1>
-        <p>Search for a compound to analyze its 3D structure, conformations, and isomers.</p>
+            <h1>Alcohol Explorer</h1>
+            <p>Search for an alcohol to analyze its 3D structure, conformations, and isomers.</p>
 
             <div class="search-box">
-                <input type="text" id="compound-input" placeholder="e.g., Butane, Methane, Aspirin...">
+                <input type="text" id="compound-input" placeholder="e.g., Cyclohexanol, Ethanol, Butan-1-ol...">
                 <button onclick="searchCompound()">Search</button>
             </div>
-            
+
             <div class="tools-section">
-                <a href="conformations.html" class="tool-link">⟳ Open 2D Conformation Rotator</a>
-                <a href="chair.html" class="tool-link">⮂ Open Chair Flip Analysis</a>
+                <a href="conformations.html" class="tool-link"
+                    onclick="return guardToolNav(event, 'conformations.html')">⟳ Open 2D Conformation Rotator</a>
+                <a href="chair.html" class="tool-link" onclick="return guardToolNav(event, 'chair.html')">⮂ Open Chair
+                    Flip Analysis</a>
             </div>
-            
+
             <div class="info-panel">
                 <h3>Instructions</h3>
                 <p><strong>Rotate:</strong> Click and drag the molecule.<br>
                     <strong>Zoom:</strong> Use your mouse wheel.<br>
                     <strong>Pan:</strong> Right-click and drag.
                 </p>
-                <p class="note">Notice: Carbon atoms are grey, Hydrogen atoms are white.</p>
+                <p class="note">Notice: Carbon atoms are grey, Hydrogen atoms are white, Oxygen atoms are red.</p>
             </div>
         </aside>
 
         <main class="viewer-container">
             <div id="welcome-screen" class="welcome-overlay">
-                <h2>Stereochemistry Explorer</h2>
-                <p>Enter a chemical name in the sidebar to generate its 3D structural model.</p>
+                <h2>Alcohol Stereochemistry Explorer</h2>
+                <p>Enter an alcohol name in the sidebar to generate its 3D structural model.</p>
                 <div class="emoji-icon">🧪</div>
 
                 <div class="popular-section fade-in" style="margin-top: 40px; width: 100%; max-width: 600px;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 15px; font-family: 'Segoe UI', sans-serif;">Popular
-                        Molecules</h3>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px; font-family: 'Segoe UI', sans-serif;">
+                        Popular Alcohols</h3>
                     <div class="popular-grid">
-                        <button class="pop-btn" onclick="quickSearch('dopamine')">Dopamine</button>
-                        <button class="pop-btn" onclick="quickSearch('ibuprofen')">Ibuprofen</button>
-                        <button class="pop-btn" onclick="quickSearch('chlorocyclohexane')">Chlorocyclohexane</button>
                         <button class="pop-btn" onclick="quickSearch('cyclohexanol')">Cyclohexanol</button>
-                        <button class="pop-btn" onclick="quickSearch('butane')">Butane</button>
-                        <button class="pop-btn"onclick="quickSearch('trans-1,2-dimethylcyclohexane')">Trans-1,2-Dimethylcyclohexane</button>
+                        <button class="pop-btn" onclick="quickSearch('ethanol')">Ethanol</button>
+                        <button class="pop-btn" onclick="quickSearch('propan-1-ol')">Propan-1-ol</button>
+                        <button class="pop-btn" onclick="quickSearch('butan-1-ol')">Butan-1-ol</button>
+                        <button class="pop-btn" onclick="quickSearch('ethane-1,2-diol')">Ethane-1,2-diol</button>
+                        <button class="pop-btn"
+                            onclick="quickSearch('trans-1,2-cyclohexanediol')">Trans-1,2-Cyclohexanediol</button>
                     </div>
                 </div>
             </div>
@@ -91,21 +94,22 @@
                             <p id="det-vsepr">-</p>
                         </div>
                         <div class="adv-card">
-                            <h4>AXE & Bond Data</h4>
+                            <h4>AXE &amp; Bond Data</h4>
                             <p id="det-axe">-</p>
                         </div>
                     </div>
                 </div>
+
                 <div id="dynamic-tools" class="tools-section"
                     style="margin-top: 25px; display: none; border-top: 1px solid #eee; padding-top: 15px;">
                     <h3 style="margin-bottom: 10px; font-size: 1.1rem;">Interactive Analysis Available:</h3>
-                    <a href="conformations.html" id="btn-2d" class="tool-link" style="display: none;">⟳ Simulate 2D Sawhorse
-                        Rotation</a>
-                    <a href="chair.html" id="btn-chair" class="tool-link" style="display: none;">⮂ Simulate Chair Ring Flip</a>
+                    <a href="conformations.html" id="btn-2d" class="tool-link" style="display: none;">⟳ Simulate 2D
+                        Sawhorse Rotation</a>
+                    <a href="chair.html" id="btn-chair" class="tool-link" style="display: none;">⮂ Simulate Chair Ring
+                        Flip</a>
                 </div>
             </div>
         </main>
-    </div>
     </div>
     <footer class="project-info fade-in">
         <span>Subject:</span> Stereochemistry &nbsp;&nbsp;|&nbsp;&nbsp; <span>Group:</span> 1
@@ -114,4 +118,5 @@
     <script src="chair.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

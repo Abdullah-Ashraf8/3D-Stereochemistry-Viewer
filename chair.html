@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <aside class="sidebar">
-            <h1 id="page-title">Chair Flip: Cyclohexane</h1>
+            <h1 id="page-title">Chair Flip: Cyclohexanol</h1>
             <p id="page-desc">Simulate a ring flip to analyze axial and equatorial interactions.</p>
 
             <div class="search-box">
@@ -27,6 +27,8 @@
                     stays "up" and "down" stays "down".</p>
                 <p><strong>Stability:</strong> The most stable conformation maximizes substituents in equatorial
                     positions to minimize 1,3-diaxial interactions.</p>
+                <p><strong>A-Values:</strong> OH = 0.87 kcal/mol &nbsp;|&nbsp; CH₃ = 1.74 kcal/mol &nbsp;|&nbsp;
+                    t-Bu = 5.90 kcal/mol</p>
             </div>
         </aside>
 
@@ -34,77 +36,92 @@
             <div class="conformation-container">
                 <div class="svg-container" style="width: 560px; height: 380px; position: relative;">
 
-        <svg id="chair-svg" width="100%" height="100%" viewBox="-120 -20 700 400">
-                <path id="chair-ring" d="M 380 190 L 250 240 L 130 200 L 50 150 L 180 100 L 300 140 Z" fill="none" stroke="#333"
-                stroke-width="5" stroke-linejoin="round" />
+                    <svg id="chair-svg" width="100%" height="100%" viewBox="-120 -20 700 400">
+                        <path id="chair-ring" d="M 380 190 L 250 240 L 130 200 L 50 150 L 180 100 L 300 140 Z"
+                            fill="none" stroke="#333" stroke-width="5" stroke-linejoin="round" />
 
-            <g id="pos-1" style="display: none;">
-                <line id="l1-a" x1="380" y1="190" x2="380" y2="130" stroke="#00a676" stroke-width="3" />
-                <text id="t1-a-text" x="380" y="120" text-anchor="middle" class="svg-text" font-weight="bold" fill="#333">a-H
-                    (Up)</text>
+                        <g id="pos-1" style="display: none;">
+                            <line id="l1-a" x1="380" y1="190" x2="380" y2="130" stroke="#00a676" stroke-width="3" />
+                            <text id="t1-a-text" x="380" y="120" text-anchor="middle" class="svg-text"
+                                font-weight="bold" fill="#333">a-H
+                                (Up)</text>
 
-                <line id="l1-e" x1="380" y1="190" x2="440" y2="210" stroke="#00a676" stroke-width="3" />
-                <text id="t1-e-text" x="450" y="215" text-anchor="start" class="svg-text" font-weight="bold" fill="#333">e-H
-                    (Down)</text>
-            </g>
+                            <line id="l1-e" x1="380" y1="190" x2="440" y2="210" stroke="#00a676" stroke-width="3" />
+                            <text id="t1-e-text" x="450" y="215" text-anchor="start" class="svg-text" font-weight="bold"
+                                fill="#333">e-H
+                                (Down)</text>
+                        </g>
 
-            <g id="pos-2" style="display: none;">
-                <line id="l2-a" x1="250" y1="240" x2="250" y2="310" stroke="#00a676" stroke-width="3" />
-                <text id="t2-a-text" x="250" y="330" text-anchor="middle" class="svg-text" font-weight="bold" fill="#333">a-H
-                    (Down)</text>
+                        <g id="pos-2" style="display: none;">
+                            <line id="l2-a" x1="250" y1="240" x2="250" y2="310" stroke="#00a676" stroke-width="3" />
+                            <text id="t2-a-text" x="250" y="330" text-anchor="middle" class="svg-text"
+                                font-weight="bold" fill="#333">a-H
+                                (Down)</text>
 
-                <line id="l2-e" x1="250" y1="240" x2="320" y2="270" stroke="#00a676" stroke-width="3" />
-                <text id="t2-e-text" x="330" y="275" text-anchor="start" class="svg-text" font-weight="bold" fill="#333">e-H
-                    (Up)</text>
-            </g>
+                            <line id="l2-e" x1="250" y1="240" x2="320" y2="270" stroke="#00a676" stroke-width="3" />
+                            <text id="t2-e-text" x="330" y="275" text-anchor="start" class="svg-text" font-weight="bold"
+                                fill="#333">e-H
+                                (Up)</text>
+                        </g>
 
-            <g id="pos-3" style="display: none;">
-                <line id="l3-a" x1="130" y1="200" x2="130" y2="130" stroke="#00a676" stroke-width="3" />
-                <text id="t3-a-text" x="130" y="120" text-anchor="middle" class="svg-text" font-weight="bold" fill="#333">a-H
-                    (Up)</text>
+                        <g id="pos-3" style="display: none;">
+                            <line id="l3-a" x1="130" y1="200" x2="130" y2="130" stroke="#00a676" stroke-width="3" />
+                            <text id="t3-a-text" x="130" y="120" text-anchor="middle" class="svg-text"
+                                font-weight="bold" fill="#333">a-H
+                                (Up)</text>
 
-                <line id="l3-e" x1="130" y1="200" x2="60" y2="230" stroke="#00a676" stroke-width="3" />
-                <text id="t3-e-text" x="50" y="240" text-anchor="end" class="svg-text" font-weight="bold" fill="#333">e-H
-                    (Down)</text>
-            </g>
+                            <line id="l3-e" x1="130" y1="200" x2="60" y2="230" stroke="#00a676" stroke-width="3" />
+                            <text id="t3-e-text" x="50" y="240" text-anchor="end" class="svg-text" font-weight="bold"
+                                fill="#333">e-H
+                                (Down)</text>
+                        </g>
 
-            <g id="pos-4" style="display: none;">
-                <line id="l4-a" x1="50" y1="150" x2="50" y2="220" stroke="#00a676" stroke-width="3" />
-                <text id="t4-a-text" x="50" y="240" text-anchor="middle" class="svg-text" font-weight="bold" fill="#333">a-H
-                    (Down)</text>
+                        <g id="pos-4" style="display: none;">
+                            <line id="l4-a" x1="50" y1="150" x2="50" y2="220" stroke="#00a676" stroke-width="3" />
+                            <text id="t4-a-text" x="50" y="240" text-anchor="middle" class="svg-text" font-weight="bold"
+                                fill="#333">a-H
+                                (Down)</text>
 
-                <line id="l4-e" x1="50" y1="150" x2="-20" y2="120" stroke="#00a676" stroke-width="3" />
-                <text id="t4-e-text" x="-30" y="120" text-anchor="end" class="svg-text" font-weight="bold" fill="#333">e-H
-                    (Up)</text>
-            </g>
+                            <line id="l4-e" x1="50" y1="150" x2="-20" y2="120" stroke="#00a676" stroke-width="3" />
+                            <text id="t4-e-text" x="-30" y="120" text-anchor="end" class="svg-text" font-weight="bold"
+                                fill="#333">e-H
+                                (Up)</text>
+                        </g>
 
-            <g id="pos-5" style="display: none;">
-                <line id="l5-a" x1="180" y1="100" x2="180" y2="30" stroke="#00a676" stroke-width="3" />
-                <text id="t5-a-text" x="180" y="20" text-anchor="middle" class="svg-text" font-weight="bold" fill="#333">a-H
-                    (Up)</text>
+                        <g id="pos-5" style="display: none;">
+                            <line id="l5-a" x1="180" y1="100" x2="180" y2="30" stroke="#00a676" stroke-width="3" />
+                            <text id="t5-a-text" x="180" y="20" text-anchor="middle" class="svg-text" font-weight="bold"
+                                fill="#333">a-H
+                                (Up)</text>
 
-                <line id="l5-e" x1="180" y1="100" x2="110" y2="70" stroke="#00a676" stroke-width="3" />
-                <text id="t5-e-text" x="100" y="70" text-anchor="end" class="svg-text" font-weight="bold" fill="#333">e-H
-                    (Down)</text>
-            </g>
+                            <line id="l5-e" x1="180" y1="100" x2="110" y2="70" stroke="#00a676" stroke-width="3" />
+                            <text id="t5-e-text" x="100" y="70" text-anchor="end" class="svg-text" font-weight="bold"
+                                fill="#333">e-H
+                                (Down)</text>
+                        </g>
 
-            <g id="pos-6" style="display: none;">
-                <line id="l6-a" x1="300" y1="140" x2="300" y2="210" stroke="#00a676" stroke-width="3" />
-                <text id="t6-a-text" x="300" y="230" text-anchor="middle" class="svg-text" font-weight="bold" fill="#333">a-H
-                    (Down)</text>
+                        <g id="pos-6" style="display: none;">
+                            <line id="l6-a" x1="300" y1="140" x2="300" y2="210" stroke="#00a676" stroke-width="3" />
+                            <text id="t6-a-text" x="300" y="230" text-anchor="middle" class="svg-text"
+                                font-weight="bold" fill="#333">a-H
+                                (Down)</text>
 
-                <line id="l6-e" x1="300" y1="140" x2="370" y2="110" stroke="#00a676" stroke-width="3" />
-                <text id="t6-e-text" x="380" y="110" text-anchor="start" class="svg-text" font-weight="bold" fill="#333">e-H
-                    (Up)</text>
-            </g>
-        </svg>
+                            <line id="l6-e" x1="300" y1="140" x2="370" y2="110" stroke="#00a676" stroke-width="3" />
+                            <text id="t6-e-text" x="380" y="110" text-anchor="start" class="svg-text" font-weight="bold"
+                                fill="#333">e-H
+                                (Up)</text>
+                        </g>
+                    </svg>
                 </div>
 
                 <div class="conf-panel">
-                    <h2 id="isomer-name">Cyclohexane</h2>
+                    <h2 id="isomer-name">Cyclohexanol</h2>
                     <div id="conf-stability" class="badge stable">Equally Stable</div>
                     <p style="margin-top: 0;"><strong>State: <span id="flip-state">Standard Chair</span></strong></p>
-                    <p id="conf-desc" style="color: var(--text-muted); line-height: 1.6;">Default cyclohexane chair.</p>
+                    <p id="chair-energy" style="color: var(--primary-color); font-weight: 600; margin: 4px 0;">Relative
+                        Energy: 0.00 kcal/mol</p>
+                    <p id="conf-desc" style="color: var(--text-muted); line-height: 1.6;">Default cyclohexanol chair.
+                    </p>
                 </div>
             </div>
         </main>
@@ -118,4 +135,5 @@
     </footer>
     <script src="chair.js"></script>
 </body>
+
 </html>

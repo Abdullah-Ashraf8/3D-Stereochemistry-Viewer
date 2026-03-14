@@ -198,6 +198,7 @@ button:active {
     box-sizing: border-box;
     /* THE MAGIC FIX: keeps padding inside the box */
 }
+
 /* Light background for 2D pages (conformations, chair) */
 .viewer-container.light {
     background-color: var(--bg-color);
@@ -223,6 +224,7 @@ button:active {
     z-index: 20;
     animation: pulse 1.4s ease-in-out infinite;
 }
+
 /* =========================================
    Welcome Screen Overlay (Sleek Dark Mode)
 ========================================= */
@@ -301,6 +303,7 @@ button:active {
     display: inline;
     margin: 0 5px;
 }
+
 /* =========================================
    Details Panel
 ========================================= */
@@ -579,19 +582,19 @@ button:active {
    Mobile Layout
 ========================================= */
 @media (max-width: 850px) {
-        .container {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto 1fr;
-            height: 100%;
-            overflow-y: auto;
-            /* Let the whole page scroll on mobile */
-        }
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: 100%;
+        overflow-y: auto;
+        /* Let the whole page scroll on mobile */
+    }
 
-        .sidebar {
-            height: auto;
-            /* Let the sidebar resize naturally on phones */
-            overflow-y: visible;
-        }
+    .sidebar {
+        height: auto;
+        /* Let the sidebar resize naturally on phones */
+        overflow-y: visible;
+    }
 
     .project-info {
         margin-top: 20px;
@@ -635,6 +638,7 @@ button:active {
         padding-bottom: 20px;
     }
 }
+
 /* =========================================
    Popular Molecules Grid
 ========================================= */

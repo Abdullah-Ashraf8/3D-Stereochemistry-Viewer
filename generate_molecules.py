@@ -1,6 +1,7 @@
 import json
 
-# Format: ("Verified PubChem Name", "Front Group", "Back Group")
+# Format: ("Verified PubChem Name", "Front Group (OH-bearing carbon)", "Back Group")
+# Restricted to the alcohol family: compounds where OH is the primary functional group.
 valid_molecules = [
     # 1. Straight-Chain Alkanes
     ("ethane", "H", "H"),
@@ -166,44 +167,71 @@ valid_molecules = [
 gauche_effect_molecules = ["1,2-difluoroethane", "ethane-1,2-diol", "2-fluoroethanol"]
 
 alkane_bases = ["ethane", "propane", "butane", "pentane", "hexane", "heptane", "octane", "nonane", "decane"]
-
+def get_energy(rotation, is_gauche_effect):
+    standard = {0: 0.0, 60: 3.0, 120: 1.0, 180: 5.5, 240: 1.0, 300: 3.0}
+    gauche    = {0: 0.5, 60: 3.2, 120: 0.0, 180: 5.5, 240: 0.0, 300: 3.2}
+    return gauche[rotation] if is_gauche_effect else standard[rotation]
+ 
 molecule_data = {}
-
 for name, f, b in valid_molecules:
-    # Determine basic bond text
-    bond_text = "C1-C2" if name in alkane_bases else "C1-C2 (Substituted)"
-    
-    # Handle the Gauche Effect logic for high chemical accuracy
-    if name in gauche_effect_molecules:
+    is_ge = name in gauche_effect_molecules
+
+    if is_ge:
         anti_name, anti_class, anti_type = "Staggered, Anti", "stable", "Stable (Local Minimum)"
-        anti_desc = f"The {f} and {b} groups are 180° apart. It is stable, but lacks the stabilizing gauche effect."
-        
+        anti_desc = f"The {f} and {b} groups are 180° apart. A local minimum; lacks the stabilizing gauche H-bond."
+
         gauche_name, gauche_class, gauche_type = "Staggered, Gauche", "most-stable", "Most Stable (Gauche Effect)"
-        gauche_desc = f"The {f} and {b} groups are 60° apart. This is the global minimum due to the stabilizing gauche effect (e.g., H-bonding or hyperconjugation) overcoming steric strain."
+        gauche_desc = f"The {f} and {b} groups are 60° apart. Global minimum due to intramolecular H-bonding overcoming steric strain."
     else:
         anti_name, anti_class, anti_type = "Staggered, Anti", "most-stable", "Most Stable"
-        anti_desc = f"The {f} and {b} groups are 180° apart. This minimizes steric strain and dipole interactions."
-        
+        anti_desc = f"The {f} and {b} groups are 180° apart. Minimizes steric strain and dipole interactions."
+
         gauche_name, gauche_class, gauche_type = "Staggered, Gauche", "stable", "Stable (Local Minimum)"
         gauche_desc = f"The {f} and {b} groups are 60° apart. Stable, but possesses gauche interaction strain."
 
     molecule_data[name] = {
-        "bond": bond_text,
-        "groups": { "f_top": f, "f_right": "H", "f_left": "H", "b_top": b, "b_right": "H", "b_left": "H" },
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": f, "f_right": "H", "f_left": "H",
+            "b_top": b, "b_right": "H", "b_left": "H"
+        },
         "states": {
-            0:   {"name": anti_name, "cssClass": anti_class, "type": anti_type, "desc": anti_desc},
-            60:  {"name": "Eclipsed", "cssClass": "unstable", "type": "High Energy", "desc": f"The {f} group eclipses an H atom. High torsional strain."},
-            120: {"name": gauche_name, "cssClass": gauche_class, "type": gauche_type, "desc": gauche_desc},
-            180: {"name": "Fully Eclipsed", "cssClass": "unstable", "type": "Least Stable", "desc": f"The {f} and {b} groups directly eclipse each other. Maximum steric repulsion!"},
-            240: {"name": gauche_name, "cssClass": gauche_class, "type": gauche_type, "desc": gauche_desc},
-            300: {"name": "Eclipsed", "cssClass": "unstable", "type": "High Energy", "desc": f"The {b} group eclipses an H atom. High torsional strain."}
+            0: {
+                "name": anti_name, "cssClass": anti_class, "type": anti_type,
+                "desc": anti_desc,
+                "kcal": get_energy(0, is_ge)
+            },
+            60: {
+                "name": "Eclipsed", "cssClass": "unstable", "type": "High Energy",
+                "desc": f"The {f} group eclipses an H atom. High torsional strain.",
+                "kcal": get_energy(60, is_ge)
+            },
+            120: {
+                "name": gauche_name, "cssClass": gauche_class, "type": gauche_type,
+                "desc": gauche_desc,
+                "kcal": get_energy(120, is_ge)
+            },
+            180: {
+                "name": "Fully Eclipsed", "cssClass": "unstable", "type": "Least Stable",
+                "desc": f"The {f} and {b} groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": get_energy(180, is_ge)
+            },
+            240: {
+                "name": gauche_name, "cssClass": gauche_class, "type": gauche_type,
+                "desc": gauche_desc,
+                "kcal": get_energy(240, is_ge)
+            },
+            300: {
+                "name": "Eclipsed", "cssClass": "unstable", "type": "High Energy",
+                "desc": f"The {b} group eclipses an H atom. High torsional strain.",
+                "kcal": get_energy(300, is_ge)
+            }
         }
     }
 
-# Write to a JavaScript file
 with open("database.js", "w") as file:
     file.write("const moleculeData = ")
     file.write(json.dumps(molecule_data, indent=4))
     file.write(";\n")
 
-print(f"Success! Generated database.js with {len(molecule_data)} PubChem-verified molecules.")
+print(f"Success! Generated database.js with {len(molecule_data)} alcohol molecules.")
