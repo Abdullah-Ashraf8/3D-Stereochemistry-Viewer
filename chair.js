@@ -291,31 +291,27 @@ function isAlcohol(name) {
 }
 
 function initializeChair() {
-    const searched = localStorage.getItem('searchedMolecule');
+    const searched = sessionStorage.getItem('searchedMolecule');
 
     if (!searched) {
-        alert("No molecule found in session. Please search for an alcohol on the main page first.");
+        alert("No molecule selected. Please search for an alcohol on the main page first.");
         window.location.href = "index.html";
         return;
     }
 
-    if (!isAlcohol(searched)) {
-        alert(`"${searched}" is not an alcohol.\n\nThe Chair Flip tool is restricted to cyclic alcohols (e.g., cyclohexanol, trans-1,2-cyclohexanediol). Please search for a cyclic alcohol on the main page.`);
-        window.location.href = "index.html?loadlast=true";
-        return;
-    }
-
-    if (!searched.includes('cyclohexan')) {
-        alert(`"${searched}" is not a cyclohexane derivative.\n\nChair flip analysis only applies to cyclohexane rings. Please search for a cyclohexanol compound.`);
-        window.location.href = "index.html?loadlast=true";
+    if (!isAlcohol(searched) || !searched.includes('cyclohexan')) {
+        sessionStorage.removeItem('searchedMolecule');
+        alert(`"${searched}" is not supported by the Chair Flip tool.\n\nThis tool requires a cyclohexane-based alcohol (e.g., cyclohexanol, trans-1,2-cyclohexanediol, trans-4-methylcyclohexanol). Please search for a valid compound first.`);
+        window.location.href = "index.html";
         return;
     }
 
     let data = cyclicData[searched] || getDynamicChair(searched);
 
     if (!data) {
+        sessionStorage.removeItem('searchedMolecule');
         alert(`Chair flip data is not available for "${searched}".\n\nTry: cyclohexanol, trans-1,2-cyclohexanediol, cis-1,3-cyclohexanediol, trans-4-methylcyclohexanol, or trans-1-tert-butyl-4-cyclohexanol.`);
-        window.location.href = "index.html?loadlast=true";
+        window.location.href = "index.html";
         return;
     }
 

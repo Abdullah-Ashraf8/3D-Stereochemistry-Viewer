@@ -215,7 +215,7 @@ async function searchCompound() {
         const isCyclic = inputName.includes("cyclohexan") &&
             (inputName.includes("ol") || inputName.includes("diol") || inputName.includes("hydroxy"));
 
-        const has2D = typeof moleculeData !== 'undefined' && !!moleculeData[inputName];
+        const has2D = isAlcohol(inputName) && !inputName.includes('cyclohexan');
 
         const toolsSection = document.getElementById('dynamic-tools');
         const btn2D = document.getElementById('btn-2d');
@@ -240,12 +240,31 @@ async function searchCompound() {
 }
 
 function guardToolNav(event, destination) {
-    if (!sessionStorage.getItem('searchedMolecule')) {
-        event.preventDefault();
+    event.preventDefault();
+
+    const molecule = sessionStorage.getItem('searchedMolecule');
+
+    if (!molecule) {
         alert("Please search for an alcohol first before opening this tool.");
         return false;
     }
-    return true;
+
+    if (destination === 'chair.html') {
+        if (!molecule.includes('cyclohexan') || !isAlcohol(molecule)) {
+            alert(`"${molecule}" is not supported by the Chair Flip tool.\n\nChair flip analysis requires a cyclohexane-based alcohol (e.g., cyclohexanol, trans-1,2-cyclohexanediol, trans-4-methylcyclohexanol).`);
+            return false;
+        }
+    }
+
+    if (destination === 'conformations.html') {
+        if (!isAlcohol(molecule) || molecule.includes('cyclohexan')) {
+            alert(`"${molecule}" is not supported by the 2D Conformation Rotator.\n\nThis tool is for open-chain alcohols only (e.g., ethanol, propan-1-ol, butan-1-ol). Cyclic alcohols like cyclohexanol use the Chair Flip tool instead.`);
+            return false;
+        }
+    }
+
+    window.location.href = destination;
+    return false;
 }
 
 function quickSearch(molecule) {

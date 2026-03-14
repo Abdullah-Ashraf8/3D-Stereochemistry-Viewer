@@ -1,8 +1,8 @@
 const moleculeData = {
-    "ethane": {
+    "methanol": {
         "bond": "C1-C2 (Alcohol)",
         "groups": {
-            "f_top": "H",
+            "f_top": "OH",
             "f_right": "H",
             "f_left": "H",
             "b_top": "H",
@@ -14,90 +14,35 @@ const moleculeData = {
                 "name": "Staggered, Anti",
                 "cssClass": "most-stable",
                 "type": "Most Stable",
-                "desc": "The H and H groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "desc": "The OH and H groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
                 "kcal": 0.0
             },
             "60": {
                 "name": "Eclipsed",
                 "cssClass": "unstable",
                 "type": "High Energy",
-                "desc": "The H group eclipses an H atom. High torsional strain.",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
                 "kcal": 3.0
             },
             "120": {
                 "name": "Staggered, Gauche",
                 "cssClass": "stable",
                 "type": "Stable (Local Minimum)",
-                "desc": "The H and H groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "desc": "The OH and H groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
                 "kcal": 1.0
             },
             "180": {
                 "name": "Fully Eclipsed",
                 "cssClass": "unstable",
                 "type": "Least Stable",
-                "desc": "The H and H groups directly eclipse each other. Maximum steric repulsion.",
+                "desc": "The OH and H groups directly eclipse each other. Maximum steric repulsion.",
                 "kcal": 5.5
             },
             "240": {
                 "name": "Staggered, Gauche",
                 "cssClass": "stable",
                 "type": "Stable (Local Minimum)",
-                "desc": "The H and H groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The H group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "propane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "H",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH3 and H groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and H groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH3 and H groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and H groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "desc": "The OH and H groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
                 "kcal": 1.0
             },
             "300": {
@@ -105,6716 +50,6 @@ const moleculeData = {
                 "cssClass": "unstable",
                 "type": "High Energy",
                 "desc": "The H group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "butane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH3 and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH3 and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "pentane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH3 and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH3 and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "hexane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH2CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH2CH3 and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH2CH3 and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "heptane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH2CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH2CH3 and CH2CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH2CH3 and CH2CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "octane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH2CH2CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH2CH2CH3 and CH2CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH2CH3 and CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH2CH2CH3 and CH2CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH2CH3 and CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "nonane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH2CH2CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH2CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH2CH2CH3 and CH2CH2CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH2CH3 and CH2CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH2CH2CH3 and CH2CH2CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH2CH3 and CH2CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH2CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "decane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH2CH2CH2CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH2CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH2CH2CH2CH3 and CH2CH2CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH2CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH2CH2CH3 and CH2CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH2CH2CH2CH3 and CH2CH2CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH2CH2CH3 and CH2CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH2CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1,2-dichloroethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "Cl",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and Cl groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and Cl groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1,2-dibromoethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "Br",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and Br groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and Br groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and Br groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and Br groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1,2-difluoroethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "F",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and F groups are 180\u00b0 apart. A local minimum; lacks the stabilizing gauche H-bond.",
-                "kcal": 0.5
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.2
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "most-stable",
-                "type": "Most Stable (Gauche Effect)",
-                "desc": "The F and F groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
-                "kcal": 0.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and F groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "most-stable",
-                "type": "Most Stable (Gauche Effect)",
-                "desc": "The F and F groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
-                "kcal": 0.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.2
-            }
-        }
-    },
-    "1,2-diiodoethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "I",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and I groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and I groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and I groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and I groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "ethane-1,2-diol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and OH groups are 180\u00b0 apart. A local minimum; lacks the stabilizing gauche H-bond.",
-                "kcal": 0.5
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.2
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "most-stable",
-                "type": "Most Stable (Gauche Effect)",
-                "desc": "The OH and OH groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
-                "kcal": 0.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OH and OH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "most-stable",
-                "type": "Most Stable (Gauche Effect)",
-                "desc": "The OH and OH groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
-                "kcal": 0.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.2
-            }
-        }
-    },
-    "ethane-1,2-diamine": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NH2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NH2 and NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NH2 and NH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1,2-ethanedithiol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "SH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "SH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The SH and SH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SH and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The SH and SH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SH and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1,2-dimethoxyethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OCH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OCH3 and OCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OCH3 and OCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "succinonitrile": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CN",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CN",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CN and CN groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CN group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CN and CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CN and CN groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CN and CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CN group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1,2-dinitroethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NO2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NO2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NO2 and NO2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NO2 and NO2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1,2-diphenylethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "C6H5",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "C6H5",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The C6H5 and C6H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The C6H5 and C6H5 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1,2-diethoxyethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OCH2CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OCH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OCH2CH3 and OCH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH2CH3 and OCH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OCH2CH3 and OCH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH2CH3 and OCH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-bromo-2-chloroethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "Cl",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and Cl groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and Cl groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-bromo-2-fluoroethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "F",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and F groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and F groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-bromo-2-iodoethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "I",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and I groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and I groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and I groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and I groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-chloro-2-fluoroethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "F",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and F groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and F groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-chloro-2-iodoethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "I",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and I groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and I groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and I groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and I groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-fluoro-2-iodoethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "I",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and I groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and I groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and I groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and I groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-chloroethanol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and OH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-bromoethanol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and OH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-fluoroethanol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and OH groups are 180\u00b0 apart. A local minimum; lacks the stabilizing gauche H-bond.",
-                "kcal": 0.5
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.2
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "most-stable",
-                "type": "Most Stable (Gauche Effect)",
-                "desc": "The F and OH groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
-                "kcal": 0.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and OH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "most-stable",
-                "type": "Most Stable (Gauche Effect)",
-                "desc": "The F and OH groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
-                "kcal": 0.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.2
-            }
-        }
-    },
-    "2-iodoethanol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and OH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-chloroethanamine": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and NH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-bromoethanamine": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and NH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-fluoroethanamine": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and NH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-iodoethanamine": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and NH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-chloroethanethiol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "SH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and SH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and SH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-bromoethanethiol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "SH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and SH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and SH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-fluoroethanethiol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "SH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and SH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and SH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-iodoethanethiol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "SH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and SH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and SH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-chloropropanenitrile": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CN",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and CN groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and CN groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CN group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-bromopropanenitrile": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CN",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and CN groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and CN groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CN group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-fluoropropanenitrile": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CN",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and CN groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and CN groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CN group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-iodopropanenitrile": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CN",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and CN groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and CN groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CN group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-chloro-2-methoxyethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and OCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and OCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-bromo-2-methoxyethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and OCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and OCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-fluoro-2-methoxyethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and OCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and OCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-iodo-2-methoxyethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and OCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and OCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-chloro-2-nitroethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NO2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and NO2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and NO2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-bromo-2-nitroethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NO2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and NO2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and NO2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-fluoro-2-nitroethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NO2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and NO2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and NO2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-iodo-2-nitroethane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NO2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and NO2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and NO2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "(2-chloroethyl)benzene": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "C6H5",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and C6H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and C6H5 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "(2-bromoethyl)benzene": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "C6H5",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and C6H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and C6H5 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "(2-fluoroethyl)benzene": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "C6H5",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and C6H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and C6H5 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "(2-iodoethyl)benzene": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "C6H5",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and C6H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and C6H5 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-chloropropane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-bromopropane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-fluoropropane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-iodopropane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "propan-1-ol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OH and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OH and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "propan-1-amine": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NH2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NH2 and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NH2 and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "propanethiol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "SH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The SH and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SH and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The SH and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SH and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-methoxypropane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OCH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OCH3 and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OCH3 and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "butyronitrile": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CN",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CN and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CN group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CN and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CN and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CN and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-nitropropane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NO2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NO2 and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NO2 and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "propylbenzene": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "C6H5",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The C6H5 and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The C6H5 and CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-chlorobutane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-bromobutane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-fluorobutane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-iodobutane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "butan-1-ol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OH and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OH and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "butan-1-amine": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NH2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NH2 and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NH2 and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "butanethiol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "SH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The SH and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The SH and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-methoxybutane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OCH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OCH3 and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OCH3 and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "pentanenitrile": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CN",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CN and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CN group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CN and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CN and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CN and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "1-nitrobutane": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NO2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NO2 and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NO2 and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "butylbenzene": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "C6H5",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CH2CH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The C6H5 and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The C6H5 and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-chloropropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-bromopropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-fluoropropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-iodopropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-hydroxypropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OH and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OH and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-aminopropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NH2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NH2 and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NH2 and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-mercaptopropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "SH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The SH and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SH and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The SH and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SH and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-methoxypropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OCH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OCH3 and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OCH3 and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-cyanopropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CN",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CN and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CN group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CN and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CN and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CN and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-nitropropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NO2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NO2 and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NO2 and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-phenylpropanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "C6H5",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The C6H5 and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The C6H5 and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "butanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH3 and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH3 and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "pentanoic acid": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH2CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH2CH3 and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH2CH3 and COOH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "methyl 3-chloropropanoate": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "methyl 3-bromopropanoate": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "methyl 3-fluoropropanoate": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "methyl 3-iodopropanoate": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "methyl 3-hydroxypropanoate": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OH and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OH and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "methyl 3-aminopropanoate": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NH2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NH2 and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NH2 and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "methyl butanoate": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH3 and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH3 and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "methyl pentanoate": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH2CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "COOCH3",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH2CH3 and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH2CH3 and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-chloropropanamide": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CONH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and CONH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and CONH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CONH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-bromopropanamide": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CONH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and CONH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and CONH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CONH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-fluoropropanamide": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CONH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and CONH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and CONH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CONH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-iodopropanamide": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CONH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and CONH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and CONH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CONH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-hydroxypropanamide": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CONH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OH and CONH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OH and CONH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CONH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "butanamide": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CONH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH3 and CONH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH3 and CONH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CONH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "pentanamide": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH2CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CONH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH2CH3 and CONH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH2CH3 and CONH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and CONH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CONH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-chloropropanal": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Cl",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CHO",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Cl and CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Cl group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Cl and CHO groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Cl and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CHO group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-bromopropanal": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "Br",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CHO",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The Br and CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The Br group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The Br and CHO groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The Br and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CHO group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-fluoropropanal": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "F",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CHO",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The F and CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The F group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The F and CHO groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The F and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CHO group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-iodopropanal": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "I",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CHO",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The I and CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The I group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The I and CHO groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The I and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CHO group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-hydroxypropanal": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CHO",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OH and CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OH and CHO groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CHO group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-aminopropanal": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NH2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CHO",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NH2 and CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NH2 and CHO groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CHO group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "butanal": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CHO",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH3 and CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH3 and CHO groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH3 and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CHO group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "pentanal": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "CH2CH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CHO",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The CH2CH3 and CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The CH2CH3 and CHO groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The CH2CH3 and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CHO group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "3-phenylpropanal": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "C6H5",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "CHO",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The C6H5 and CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The C6H5 and CHO groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The CHO group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-aminoethanol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OH and NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OH and NH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OH and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-mercaptoethanol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "SH",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The SH and OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SH and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The SH and OH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SH and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-methoxyethanol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OCH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OCH3 and OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OCH3 and OH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-nitroethanol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NO2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NO2 and OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NO2 and OH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-phenylethanol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "C6H5",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The C6H5 and OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The C6H5 and OH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-aminoethanethiol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NH2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "SH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NH2 and SH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NH2 and SH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NH2 and SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SH group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-methoxyethanamine": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "OCH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The OCH3 and NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The OCH3 and NH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The OCH3 and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-nitroethanamine": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "NO2",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The NO2 and NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NO2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The NO2 and NH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The NO2 and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-phenylethanamine": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "C6H5",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "NH2",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The C6H5 and NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The C6H5 and NH2 groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The C6H5 and NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The NH2 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            }
-        }
-    },
-    "2-(methylsulfanyl)ethanol": {
-        "bond": "C1-C2 (Alcohol)",
-        "groups": {
-            "f_top": "SCH3",
-            "f_right": "H",
-            "f_left": "H",
-            "b_top": "OH",
-            "b_right": "H",
-            "b_left": "H"
-        },
-        "states": {
-            "0": {
-                "name": "Staggered, Anti",
-                "cssClass": "most-stable",
-                "type": "Most Stable",
-                "desc": "The SCH3 and OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
-                "kcal": 0.0
-            },
-            "60": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The SCH3 group eclipses an H atom. High torsional strain.",
-                "kcal": 3.0
-            },
-            "120": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SCH3 and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "180": {
-                "name": "Fully Eclipsed",
-                "cssClass": "unstable",
-                "type": "Least Stable",
-                "desc": "The SCH3 and OH groups directly eclipse each other. Maximum steric repulsion.",
-                "kcal": 5.5
-            },
-            "240": {
-                "name": "Staggered, Gauche",
-                "cssClass": "stable",
-                "type": "Stable (Local Minimum)",
-                "desc": "The SCH3 and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
-                "kcal": 1.0
-            },
-            "300": {
-                "name": "Eclipsed",
-                "cssClass": "unstable",
-                "type": "High Energy",
-                "desc": "The OH group eclipses an H atom. High torsional strain.",
                 "kcal": 3.0
             }
         }
@@ -7045,7 +280,7 @@ const moleculeData = {
             "f_top": "OH",
             "f_right": "H",
             "f_left": "H",
-            "b_top": "CH2CH2CH2CH3",
+            "b_top": "(CH2)3CH3",
             "b_right": "H",
             "b_left": "H"
         },
@@ -7054,7 +289,7 @@ const moleculeData = {
                 "name": "Staggered, Anti",
                 "cssClass": "most-stable",
                 "type": "Most Stable",
-                "desc": "The OH and CH2CH2CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "desc": "The OH and (CH2)3CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
                 "kcal": 0.0
             },
             "60": {
@@ -7068,28 +303,1293 @@ const moleculeData = {
                 "name": "Staggered, Gauche",
                 "cssClass": "stable",
                 "type": "Stable (Local Minimum)",
-                "desc": "The OH and CH2CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "desc": "The OH and (CH2)3CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
                 "kcal": 1.0
             },
             "180": {
                 "name": "Fully Eclipsed",
                 "cssClass": "unstable",
                 "type": "Least Stable",
-                "desc": "The OH and CH2CH2CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "desc": "The OH and (CH2)3CH3 groups directly eclipse each other. Maximum steric repulsion.",
                 "kcal": 5.5
             },
             "240": {
                 "name": "Staggered, Gauche",
                 "cssClass": "stable",
                 "type": "Stable (Local Minimum)",
-                "desc": "The OH and CH2CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "desc": "The OH and (CH2)3CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
                 "kcal": 1.0
             },
             "300": {
                 "name": "Eclipsed",
                 "cssClass": "unstable",
                 "type": "High Energy",
-                "desc": "The CH2CH2CH2CH3 group eclipses an H atom. High torsional strain.",
+                "desc": "The (CH2)3CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "heptan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)4CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)4CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)4CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)4CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)4CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)4CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "octan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)5CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)5CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)5CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)5CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)5CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)5CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "nonan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)6CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)6CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)6CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)6CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)6CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)6CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "decan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)7CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)7CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)7CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)7CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)7CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)7CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "undecan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)8CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)8CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)8CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)8CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)8CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)8CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "dodecan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)9CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)9CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)9CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)9CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)9CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)9CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "propan-2-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "butan-2-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "pentan-2-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "pentan-3-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "hexan-2-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "hexan-3-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-methylpropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH(CH3)2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH(CH3)2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH(CH3)2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH(CH3)2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH(CH3)2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH(CH3)2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-methylbutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH(CH3)CH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH(CH3)CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH(CH3)CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH(CH3)CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH(CH3)CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH(CH3)CH2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "3-methylbutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH(CH3)2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH(CH3)2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH(CH3)2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH(CH3)2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH(CH3)2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH(CH3)2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-ethylbutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH(C2H5)2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH(C2H5)2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH(C2H5)2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH(C2H5)2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH(C2H5)2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH(C2H5)2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-methylpentan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH(CH3)(CH2)2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH(CH3)(CH2)2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH(CH3)(CH2)2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH(CH3)(CH2)2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH(CH3)(CH2)2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH(CH3)(CH2)2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-methylpentan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)2CH(CH3)2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)2CH(CH3)2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)2CH(CH3)2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)2CH(CH3)2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)2CH(CH3)2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)2CH(CH3)2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-ethylhexan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH(C2H5)(CH2)3CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH(C2H5)(CH2)3CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH(C2H5)(CH2)3CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH(C2H5)(CH2)3CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH(C2H5)(CH2)3CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH(C2H5)(CH2)3CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-methylpropan-2-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-methylbutan-2-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-methylpentan-2-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "3-methylpentan-3-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH3 group eclipses an H atom. High torsional strain.",
                 "kcal": 3.0
             }
         }
@@ -7146,6 +1646,501 @@ const moleculeData = {
                 "type": "High Energy",
                 "desc": "The OH group eclipses an H atom. High torsional strain.",
                 "kcal": 3.2
+            }
+        }
+    },
+    "propane-1,2-diol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and OH groups are 180\u00b0 apart. A local minimum; lacks the stabilizing gauche H-bond.",
+                "kcal": 0.5
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and OH groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and OH groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            }
+        }
+    },
+    "propane-1,3-diol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "butane-1,2-diol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "butane-1,3-diol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "butane-1,4-diol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "butane-2,3-diol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and OH groups are 180\u00b0 apart. A local minimum; lacks the stabilizing gauche H-bond.",
+                "kcal": 0.5
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and OH groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and OH groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            }
+        }
+    },
+    "pentane-1,5-diol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)3OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)3OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)3OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)3OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "hexane-1,6-diol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)4OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)4OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)4OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)4OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)4OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)4OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-methylpropane-1,3-diol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
             }
         }
     },
@@ -7369,6 +2364,501 @@ const moleculeData = {
             }
         }
     },
+    "3-chloropropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2Cl",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2Cl groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2Cl groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2Cl group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "3-bromopropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2Br",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2Br groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2Br groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2Br groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2Br groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2Br group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "3-fluoropropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2F",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2F groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2F groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2F group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "3-iodopropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2I",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2I groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2I groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2I groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2I groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2I group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-chlorobutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2Cl",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2Cl groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2Cl groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2Cl group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-bromobutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2Br",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2Br groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2Br groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2Br groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2Br groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2Br group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-fluorobutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2F",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2F groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2F groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2F group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "5-chloropentan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)3Cl",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)3Cl groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)3Cl groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)3Cl group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "6-chlorohexan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)4Cl",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)4Cl groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)4Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)4Cl groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)4Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)4Cl group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
     "2-aminoethanol": {
         "bond": "C1-C2 (Alcohol)",
         "groups": {
@@ -7420,6 +2910,336 @@ const moleculeData = {
                 "cssClass": "unstable",
                 "type": "High Energy",
                 "desc": "The NH2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "3-aminopropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2NH2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2NH2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2NH2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-aminobutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2NH2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2NH2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2NH2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "5-aminopentan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)3NH2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)3NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)3NH2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)3NH2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "6-aminohexan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)4NH2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)4NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)4NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)4NH2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)4NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)4NH2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-(methylamino)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "NHCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and NHCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and NHCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and NHCH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and NHCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The NHCH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-(dimethylamino)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "N(CH3)2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and N(CH3)2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and N(CH3)2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and N(CH3)2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and N(CH3)2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The N(CH3)2 group eclipses an H atom. High torsional strain.",
                 "kcal": 3.0
             }
         }
@@ -7479,6 +3299,116 @@ const moleculeData = {
             }
         }
     },
+    "3-mercaptopropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2SH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2SH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2SH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2SH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-mercaptobutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2SH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2SH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2SH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2SH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2SH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
     "2-methoxyethanol": {
         "bond": "C1-C2 (Alcohol)",
         "groups": {
@@ -7530,6 +3460,281 @@ const moleculeData = {
                 "cssClass": "unstable",
                 "type": "High Energy",
                 "desc": "The OCH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-ethoxyethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "OCH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and OCH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and OCH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and OCH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and OCH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OCH2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-propoxyethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "OCH2CH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and OCH2CH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and OCH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and OCH2CH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and OCH2CH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OCH2CH2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-butoxyethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "O(CH2)3CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and O(CH2)3CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and O(CH2)3CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and O(CH2)3CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and O(CH2)3CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The O(CH2)3CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "3-methoxypropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2OCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2OCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2OCH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2OCH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-(2-methoxyethoxy)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2OCH2OCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2OCH2OCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OCH2OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2OCH2OCH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OCH2OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2OCH2OCH3 group eclipses an H atom. High torsional strain.",
                 "kcal": 3.0
             }
         }
@@ -7589,6 +3794,281 @@ const moleculeData = {
             }
         }
     },
+    "3-nitropropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2NO2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2NO2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2NO2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2NO2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-nitrobutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2NO2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2NO2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2NO2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2NO2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "3-hydroxypropanenitrile": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CN",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CN groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CN groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CN group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-hydroxybutanenitrile": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2CN",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2CN groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2CN groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2CN group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "5-hydroxypentanenitrile": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)3CN",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)3CN groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)3CN groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3CN groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)3CN group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
     "2-phenylethanol": {
         "bond": "C1-C2 (Alcohol)",
         "groups": {
@@ -7644,6 +4124,611 @@ const moleculeData = {
             }
         }
     },
+    "3-phenylpropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2C6H5",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2C6H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2C6H5 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2C6H5 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-phenylbutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2C6H5",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2C6H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2C6H5 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2C6H5 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-(4-methylphenyl)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-(4-methoxyphenyl)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4OCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4OCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4OCH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4OCH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-(4-chlorophenyl)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4Cl",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4Cl groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4Cl groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4Cl group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-(4-fluorophenyl)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4F",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4F groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4F groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4F group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-(4-bromophenyl)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4Br",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4Br groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4Br groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4Br groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4Br groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4Br group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-(4-nitrophenyl)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4NO2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4NO2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4NO2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4NO2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4NO2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-(2-naphthyl)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C10H7",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C10H7 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C10H7 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C10H7 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C10H7 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C10H7 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "glycolic acid": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "COOH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and COOH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The COOH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "lactic acid": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "COOH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and COOH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The COOH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
     "3-hydroxypropanoic acid": {
         "bond": "C1-C2 (Alcohol)",
         "groups": {
@@ -7695,6 +4780,2261 @@ const moleculeData = {
                 "cssClass": "unstable",
                 "type": "High Energy",
                 "desc": "The COOH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-hydroxybutanoic acid": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2COOH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2COOH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2COOH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "5-hydroxypentanoic acid": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2COOH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2COOH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2COOH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2COOH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2COOH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "mandelic acid": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H5",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H5 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "methyl glycolate": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "COOCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "methyl lactate": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "COOCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "ethyl lactate": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "COOC2H5",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and COOC2H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOC2H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and COOC2H5 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOC2H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The COOC2H5 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "methyl 3-hydroxypropanoate": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "COOCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and COOCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and COOCH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The COOCH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "ethyl 3-hydroxypropanoate": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "COOC2H5",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and COOC2H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOC2H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and COOC2H5 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COOC2H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The COOC2H5 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "glycolaldehyde": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CHO",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CHO groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CHO group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "3-hydroxypropanal": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CHO",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CHO groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CHO group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-hydroxybutanal": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2CHO",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2CHO groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2CHO group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "5-hydroxypentanal": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)3CHO",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)3CHO groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)3CHO groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3CHO groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)3CHO group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "hydroxyacetone": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "COCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and COCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and COCH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The COCH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-hydroxybutan-2-one": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2COCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2COCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2COCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2COCH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2COCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2COCH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "1-hydroxybutan-2-one": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "COCH2CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and COCH2CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COCH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and COCH2CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and COCH2CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The COCH2CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "prop-2-en-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH=CH2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH=CH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH=CH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH=CH2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH=CH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH=CH2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "but-3-en-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH=CH2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH=CH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH=CH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH=CH2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH=CH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH=CH2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "pent-4-en-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)2CH=CH2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)2CH=CH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)2CH=CH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)2CH=CH2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)2CH=CH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)2CH=CH2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "hex-5-en-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "(CH2)3CH=CH2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and (CH2)3CH=CH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3CH=CH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and (CH2)3CH=CH2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and (CH2)3CH=CH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The (CH2)3CH=CH2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "prop-2-yn-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C\u2261CH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C\u2261CH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C\u2261CH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C\u2261CH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C\u2261CH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C\u2261CH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "but-3-yn-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2C\u2261CH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2C\u2261CH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2C\u2261CH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2C\u2261CH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2C\u2261CH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2C\u2261CH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2,2-difluoroethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CHF2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CHF2 groups are 180\u00b0 apart. A local minimum; lacks the stabilizing gauche H-bond.",
+                "kcal": 0.5
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and CHF2 groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CHF2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and CHF2 groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CHF2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            }
+        }
+    },
+    "2,2,2-trifluoroethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CF3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CF3 groups are 180\u00b0 apart. A local minimum; lacks the stabilizing gauche H-bond.",
+                "kcal": 0.5
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and CF3 groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CF3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and CF3 groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CF3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            }
+        }
+    },
+    "3,3,3-trifluoropropan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CF3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CF3 groups are 180\u00b0 apart. A local minimum; lacks the stabilizing gauche H-bond.",
+                "kcal": 0.5
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and CH2CF3 groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CF3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and CH2CF3 groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CF3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            }
+        }
+    },
+    "1,1,1,3,3,3-hexafluoropropan-2-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CF3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CF3 groups are 180\u00b0 apart. A local minimum; lacks the stabilizing gauche H-bond.",
+                "kcal": 0.5
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and CF3 groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CF3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and CF3 groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CF3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            }
+        }
+    },
+    "4,4,4-trifluorobutan-1-ol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2CF3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2CF3 groups are 180\u00b0 apart. A local minimum; lacks the stabilizing gauche H-bond.",
+                "kcal": 0.5
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and CH2CH2CF3 groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2CF3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "most-stable",
+                "type": "Most Stable (Gauche Effect)",
+                "desc": "The OH and CH2CH2CF3 groups are 60\u00b0 apart. Global minimum due to intramolecular H-bonding overcoming steric strain.",
+                "kcal": 0.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2CF3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.2
+            }
+        }
+    },
+    "glycerol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "sorbitol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "xylitol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "mannitol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "erythritol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "serinol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2NH2",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2NH2 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2NH2 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2NH2 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2NH2 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "diethanolamine": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "triethanolamine": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH2CH2OH",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH2CH2OH groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH2CH2OH groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH2CH2OH groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH2CH2OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "2-chloro-1-(4-fluorophenyl)ethanol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4F",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4F groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4F groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4F group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-fluorobenzyl alcohol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4F",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4F groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4F groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4F groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4F group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-chlorobenzyl alcohol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4Cl",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4Cl groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4Cl groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4Cl groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4Cl group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-methylbenzyl alcohol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4CH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4CH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4CH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4CH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4CH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "4-methoxybenzyl alcohol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H4OCH3",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H4OCH3 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H4OCH3 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H4OCH3 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H4OCH3 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "benzyl alcohol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "C6H5",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and C6H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and C6H5 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and C6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The C6H5 group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            }
+        }
+    },
+    "cinnamyl alcohol": {
+        "bond": "C1-C2 (Alcohol)",
+        "groups": {
+            "f_top": "OH",
+            "f_right": "H",
+            "f_left": "H",
+            "b_top": "CH=CHC6H5",
+            "b_right": "H",
+            "b_left": "H"
+        },
+        "states": {
+            "0": {
+                "name": "Staggered, Anti",
+                "cssClass": "most-stable",
+                "type": "Most Stable",
+                "desc": "The OH and CH=CHC6H5 groups are 180\u00b0 apart. Minimizes steric strain and dipole interactions.",
+                "kcal": 0.0
+            },
+            "60": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The OH group eclipses an H atom. High torsional strain.",
+                "kcal": 3.0
+            },
+            "120": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH=CHC6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "180": {
+                "name": "Fully Eclipsed",
+                "cssClass": "unstable",
+                "type": "Least Stable",
+                "desc": "The OH and CH=CHC6H5 groups directly eclipse each other. Maximum steric repulsion.",
+                "kcal": 5.5
+            },
+            "240": {
+                "name": "Staggered, Gauche",
+                "cssClass": "stable",
+                "type": "Stable (Local Minimum)",
+                "desc": "The OH and CH=CHC6H5 groups are 60\u00b0 apart. Stable, but possesses gauche interaction strain.",
+                "kcal": 1.0
+            },
+            "300": {
+                "name": "Eclipsed",
+                "cssClass": "unstable",
+                "type": "High Energy",
+                "desc": "The CH=CHC6H5 group eclipses an H atom. High torsional strain.",
                 "kcal": 3.0
             }
         }
